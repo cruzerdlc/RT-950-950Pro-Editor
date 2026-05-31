@@ -1,14 +1,20 @@
+## v0.7.0-pre9 - Update checker prerelease fix
 
-## v0.7.0-pre8 - Auto update checker
+- Fixed GitHub update checks when the latest published build is a GitHub prerelease.
+- The updater now checks the normal latest release endpoint, then the releases list including prereleases, then the VERSION file.
+- Improved the error message when GitHub data cannot be read.
+
+
+## v0.7.0-pre9 - Auto update checker
 
 - Added **Help → Check for Updates...**.
 - Added automatic startup update check against the project GitHub repository.
 - The app checks the latest GitHub Release first, then falls back to the raw `VERSION` file if no release is published yet.
 - If a newer release is found, the app asks whether to open the GitHub download/release page.
-- Updated build metadata to v0.7.0-pre8.
+- Updated build metadata to v0.7.0-pre9.
 
 
-## v0.7.0-pre8
+## v0.7.0-pre9
 
 - Fixed the clean portable Windows build script for PyInstaller 6.x.
 - Removed the invalid `--noupx` command-line option when building from the `.spec` file.
@@ -26,13 +32,13 @@
 
 # Changelog
 
-## v0.7.0-pre8
+## v0.7.0-pre9
 
 - Added `scripts/Upload-BuildToGitHub.ps1` for uploading tested Windows builds to GitHub Releases.
 - Added `docs/GITHUB_RELEASE_UPLOAD_SCRIPT.md` with maintainer upload instructions.
 - The upload script supports existing portable ZIP files, EXE-to-ZIP packaging, draft releases, prerelease releases, and replacing existing release assets.
 
-## v0.7.0-pre8
+## v0.7.0-pre9
 
 Documentation cleanup for EXE-only distribution.
 
@@ -42,7 +48,7 @@ Documentation cleanup for EXE-only distribution.
 - User-facing setup now points only to the Windows executable workflow.
 
 
-## v0.7.0-pre8
+## v0.7.0-pre9
 
 - Updated README for EXE-only distribution.
 - Removed end-user build instructions from README.
@@ -50,7 +56,7 @@ Documentation cleanup for EXE-only distribution.
 
 All notable changes to **RT-950/950Pro Editor** are tracked here.
 
-## v0.7.0-pre8
+## v0.7.0-pre9
 
 Pre-production packaging release.
 
@@ -60,9 +66,9 @@ Pre-production packaging release.
 - Added GitHub-ready `README.md`.
 - Added user guide, build guide, release checklist, developer notes, protocol notes, troubleshooting, backup notes, and radio-compliance notes.
 - Added contributing, support, security, license, requirements, and `.gitignore` files.
-- Updated app version to `v0.7.0-pre8`.
+- Updated app version to `v0.7.0-pre9`.
 
-## v0.7.0-pre8
+## v0.7.0-pre9
 
 Production polish pass.
 

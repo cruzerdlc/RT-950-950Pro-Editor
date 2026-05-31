@@ -1,4 +1,4 @@
-RT-950/950Pro Editor v0.7.0-pre8
+RT-950/950Pro Editor v0.7.0-pre9
 =================================
 
 Pre-production Windows application
