@@ -8,6 +8,8 @@ Project: https://github.com/cruzerdlc/RT-950-950Pro-Editor
 Donate: https://cash.app/$cruzerdlc
 
 > **Pre-production status:** read, write, settings edit, stock presets, and boot image upload have been tested during development. Keep backups and verify your own radio before depending on it.
+>
+> **Binary packaging note:** public builds are distributed as a clean portable Windows folder/ZIP instead of a one-file self-extracting EXE to reduce antivirus false positives.
 
 ## Download and run
 
@@ -60,6 +62,11 @@ Before using the app:
 - Built-in stock preset browser/importer.
 - Boot Picture editor with crop/preview/save/upload.
 - Custom Windows app icon.
+- Automatic update checker using GitHub Releases.
+
+## Updates
+
+The app checks GitHub for new versions on startup. You can also check manually from **Help → Check for Updates...**. If a newer version is available, the app asks whether to open the GitHub release/download page.
 
 ## Basic workflow
 
@@ -105,6 +112,7 @@ The boot picture editor prepares the correct image format and uploads it directl
 - [Release Checklist](docs/GITHUB_RELEASE_CHECKLIST.md)
 - [Maintainer Release Upload Script](docs/GITHUB_RELEASE_UPLOAD_SCRIPT.md)
 - [Legal / Radio Compliance Notes](docs/LEGAL_AND_RADIO_COMPLIANCE.md)
+- [Antivirus False Positives](docs/ANTIVIRUS_FALSE_POSITIVES.md)
 - [Changelog](CHANGELOG.md)
 
 ## Safety notes
@@ -123,3 +131,8 @@ The boot picture editor prepares the correct image format and uploads it directl
 ## License
 
 MIT License. See [LICENSE.txt](LICENSE.txt).
+
+
+## Developer build note
+
+For building the clean portable Windows release, run `BUILD_CLEAN_PORTABLE_WINDOWS.bat`. If Python is not installed, the build script now offers to install Python 3.12 with `winget`. End users of the finished portable ZIP do not need Python.

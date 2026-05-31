@@ -6,8 +6,8 @@ RT-950/950Pro Editor lets you read, edit, and write RT-950 / RT-950Pro radio pro
 
 ## 2. First-time setup
 
-1. Download the Windows release ZIP or installer.
-2. Extract the ZIP or run the installer.
+1. Download the Windows portable release ZIP.
+2. Extract the ZIP to a folder such as `Documents\RT-950_950Pro_Editor`.
 3. Run `RT-950_950Pro_Editor.exe`.
 
 ## 3. Reading the radio
@@ -88,3 +88,12 @@ The app creates automatic backups before normal writes. Keep backups if you are 
 - Write a small change first and verify before big updates.
 - Keep a known-good backup from the factory CPS and from this editor.
 - Program only frequencies you are authorized to use.
+
+
+## Checking for updates
+
+The editor checks GitHub for newer versions when it starts. To check manually, use:
+
+**Help → Check for Updates...**
+
+If a newer release is available, the app asks whether to open the GitHub release/download page.
