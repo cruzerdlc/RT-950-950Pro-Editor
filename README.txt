@@ -1,4 +1,4 @@
-RT-950/950Pro Editor v0.7.0-pre9
+RT-950/950Pro Editor v0.7.0-pre13
 =================================
 
 Pre-production Windows application
@@ -33,3 +33,14 @@ Windows release builds should be distributed as a portable folder ZIP, not as a 
 ## Developer build note
 
 For building the clean portable Windows release, run `BUILD_CLEAN_PORTABLE_WINDOWS.bat`. If Python is not installed, the build script now offers to install Python 3.12 with `winget`. End users of the finished portable ZIP do not need Python.
+
+
+v0.7.0-pre13 notes:
+- Radio Read Save As .dat now uses a bundled internal RT-950PRO template and only asks where to save.
+- Write Radio now applies edited zone names to the radio zone block.
+- Zone names match the radio style: ZoneOne, ZoneTwo, ZoneThree, etc.
+
+v0.7.0-pre12 notes:
+- Fixed Zone editor Apply Name crash.
+- Moved modulation CSV import/export/template workflow to Edit > FM/AM/SSB Modulation.
+- Removed zone import/export buttons from the Zone editor.

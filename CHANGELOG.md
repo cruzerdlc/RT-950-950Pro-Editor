@@ -1,3 +1,25 @@
+## v0.7.0-pre13 - Zone Write Save Fix
+
+- Fixed Radio Read **Save As .dat** so it only asks where to save the file; it no longer asks the user to open/select a template first.
+- Added bundled `rt950pro_dat_template.dat` used internally for Radio Read Save As .dat.
+- Fixed Radio > Write Radio so edited zone names are applied to the radio write image.
+- Added Zone Names to the Write Radio scope/status text.
+- Confirmed RT-950PRO .dat zone names use the radio-style names: `ZoneOne`, `ZoneTwo`, `ZoneThree`, etc.
+
+## v0.7.0-pre12 - Modulation CSV Fix
+- Fixed Zone editor Apply Name crash.
+- Removed Import CSV / Export CSV from Edit > Zones.
+- Added Import CSV, Export CSV, and Download CSV Template under Edit > FM/AM/SSB Modulation.
+- Added detailed rt950_modulation_template.csv.
+
+
+## v0.7.0-pre10 - Modulation CSV + Zones
+
+- Added File > Download CSV templates... for channel template, zone template, and detailed field guide.
+- Added Edit > Zones... editor for zone names.
+- Added zone-name CSV import/export.
+- Preserved v0.7.0-pre9 prerelease-aware GitHub update checker fix.
+
 ## v0.7.0-pre9 - Update checker prerelease fix
 
 - Fixed GitHub update checks when the latest published build is a GitHub prerelease.
