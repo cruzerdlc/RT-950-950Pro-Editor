@@ -2,7 +2,7 @@
 
 RT-950/950Pro Editor is a Windows radio programming utility. It talks to USB serial/COM ports and writes data to a connected radio. Some antivirus engines may treat new unsigned hardware utilities as suspicious, especially when they are packaged as Python executables.
 
-## What changed in v0.7.0-pre9
+## What changed in v0.7.0-pre45
 
 The pre-production build was changed to reduce false positives:
 

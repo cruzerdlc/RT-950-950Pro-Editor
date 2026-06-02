@@ -1,4 +1,4 @@
-## v0.7.0-pre33 - Zone Write Save Fix
+## v0.7.0-pre45 - Zone Write Save Fix
 
 - Fixed Radio Read **Save As .dat** so it only asks where to save the file; it no longer asks the user to open/select a template first.
 - Added bundled `rt950pro_dat_template.dat` used internally for Radio Read Save As .dat.
@@ -6,37 +6,37 @@
 - Added Zone Names to the Write Radio scope/status text.
 - Confirmed RT-950PRO .dat zone names use the radio-style names: `ZoneOne`, `ZoneTwo`, `ZoneThree`, etc.
 
-## v0.7.0-pre12 - Modulation CSV Fix
+## v0.7.0-pre45 - Modulation CSV Fix
 - Fixed Zone editor Apply Name crash.
 - Removed Import CSV / Export CSV from Edit > Zones.
 - Added Import CSV, Export CSV, and Download CSV Template under Edit > FM/AM/SSB Modulation.
 - Added detailed rt950_modulation_template.csv.
 
 
-## v0.7.0-pre10 - Modulation CSV + Zones
+## v0.7.0-pre45 - Modulation CSV + Zones
 
 - Added File > Download CSV templates... for channel template, zone template, and detailed field guide.
 - Added Edit > Zones... editor for zone names.
 - Added zone-name CSV import/export.
-- Preserved v0.7.0-pre9 prerelease-aware GitHub update checker fix.
+- Preserved v0.7.0-pre45 prerelease-aware GitHub update checker fix.
 
-## v0.7.0-pre9 - Update checker prerelease fix
+## v0.7.0-pre45 - Update checker prerelease fix
 
 - Fixed GitHub update checks when the latest published build is a GitHub prerelease.
 - The updater now checks the normal latest release endpoint, then the releases list including prereleases, then the VERSION file.
 - Improved the error message when GitHub data cannot be read.
 
 
-## v0.7.0-pre9 - Auto update checker
+## v0.7.0-pre45 - Auto update checker
 
 - Added **Help → Check for Updates...**.
 - Added automatic startup update check against the project GitHub repository.
 - The app checks the latest GitHub Release first, then falls back to the raw `VERSION` file if no release is published yet.
 - If a newer release is found, the app asks whether to open the GitHub download/release page.
-- Updated build metadata to v0.7.0-pre9.
+- Updated build metadata to v0.7.0-pre45.
 
 
-## v0.7.0-pre9
+## v0.7.0-pre45
 
 - Fixed the clean portable Windows build script for PyInstaller 6.x.
 - Removed the invalid `--noupx` command-line option when building from the `.spec` file.
@@ -44,7 +44,7 @@
 - Build command remains `BUILD_CLEAN_PORTABLE_WINDOWS.bat`.
 
 
-## 0.7.0-pre6
+## 0.7.0-pre45
 
 - Fixed clean portable build bootstrap when Windows only has the Microsoft Store `python` alias.
 - Build script now searches for `py.exe`, Python 3.13/3.12/3.11, `python`, and `python3`.
@@ -54,13 +54,13 @@
 
 # Changelog
 
-## v0.7.0-pre9
+## v0.7.0-pre45
 
 - Added `scripts/Upload-BuildToGitHub.ps1` for uploading tested Windows builds to GitHub Releases.
 - Added `docs/GITHUB_RELEASE_UPLOAD_SCRIPT.md` with maintainer upload instructions.
 - The upload script supports existing portable ZIP files, EXE-to-ZIP packaging, draft releases, prerelease releases, and replacing existing release assets.
 
-## v0.7.0-pre9
+## v0.7.0-pre45
 
 Documentation cleanup for EXE-only distribution.
 
@@ -70,7 +70,7 @@ Documentation cleanup for EXE-only distribution.
 - User-facing setup now points only to the Windows executable workflow.
 
 
-## v0.7.0-pre9
+## v0.7.0-pre45
 
 - Updated README for EXE-only distribution.
 - Removed end-user build instructions from README.
@@ -78,7 +78,7 @@ Documentation cleanup for EXE-only distribution.
 
 All notable changes to **RT-950/950Pro Editor** are tracked here.
 
-## v0.7.0-pre9
+## v0.7.0-pre45
 
 Pre-production packaging release.
 
@@ -88,9 +88,9 @@ Pre-production packaging release.
 - Added GitHub-ready `README.md`.
 - Added user guide, build guide, release checklist, developer notes, protocol notes, troubleshooting, backup notes, and radio-compliance notes.
 - Added contributing, support, security, license, requirements, and `.gitignore` files.
-- Updated app version to `v0.7.0-pre9`.
+- Updated app version to `v0.7.0-pre45`.
 
-## v0.7.0-pre9
+## v0.7.0-pre45
 
 Production polish pass.
 
