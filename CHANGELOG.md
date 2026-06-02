@@ -1,4 +1,4 @@
-## v0.7.0-pre13 - Zone Write Save Fix
+## v0.7.0-pre33 - Zone Write Save Fix
 
 - Fixed Radio Read **Save As .dat** so it only asks where to save the file; it no longer asks the user to open/select a template first.
 - Added bundled `rt950pro_dat_template.dat` used internally for Radio Read Save As .dat.

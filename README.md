@@ -138,7 +138,7 @@ MIT License. See [LICENSE.txt](LICENSE.txt).
 For building the clean portable Windows release, run `BUILD_CLEAN_PORTABLE_WINDOWS.bat`. If Python is not installed, the build script now offers to install Python 3.12 with `winget`. End users of the finished portable ZIP do not need Python.
 
 
-## v0.7.0-pre13 Zone Write Save Fix
+## v0.7.0-pre33 Zone Write Save Fix
 
 - Radio Read **Save As .dat** now uses a bundled internal RT-950PRO template and only asks where to save.
 - **Write Radio** now applies edited zone names to the radio zone block.
