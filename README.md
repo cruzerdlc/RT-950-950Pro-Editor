@@ -138,21 +138,21 @@ MIT License. See [LICENSE.txt](LICENSE.txt).
 For building the clean portable Windows release, run `BUILD_CLEAN_PORTABLE_WINDOWS.bat`. If Python is not installed, the build script now offers to install Python 3.12 with `winget`. End users of the finished portable ZIP do not need Python.
 
 
-## v0.7.0-pre45 Zone Write Save Fix
+## v0.7.0-pre52 Zone Write Save Fix
 
 - Radio Read **Save As .dat** now uses a bundled internal RT-950PRO template and only asks where to save.
 - **Write Radio** now applies edited zone names to the radio zone block.
 - Zone names match the radio style: `ZoneOne`, `ZoneTwo`, `ZoneThree`, etc.
 
-## v0.7.0-pre45 Modulation CSV + Zones
+## v0.7.0-pre52 Modulation CSV + Zones
 
 - Added **File > Download CSV templates...** to save channel and zone CSV templates plus a detailed field guide.
 - Added **Edit > Zones...** so each zone name can be edited from inside the app.
 - Added zone-name CSV import/export from the Zones editor.
-- Kept the v0.7.0-pre45 GitHub update-checker fix that reads prerelease releases as well as `/releases/latest`.
+- Kept the v0.7.0-pre52 GitHub update-checker fix that reads prerelease releases as well as `/releases/latest`.
 
 
-v0.7.0-pre45 notes:
+v0.7.0-pre52 notes:
 - Fixed Zone editor Apply Name crash.
 - Moved modulation CSV import/export/template workflow to Edit > FM/AM/SSB Modulation.
 - Removed zone import/export buttons from the Zone editor.
