@@ -1,4 +1,78 @@
-## v0.7.0-pre55 - Wider channel editor, Read/Write dialog styling, progress bars
+## v0.7.0-pre63 - Delete/insert, editor delete button, tone OFF, panel fixes
+
+Fixed (regressions)
+- FM/AM/SSB Modulation tab was blank: the table grids were nested inside a
+  scroll-frame canvas (canvas-in-canvas), which rendered empty. They now lay
+  out directly and show again.
+- Optional Features showed only one card: removed a width-tracking layout
+  hack and uniform-column sizing; all six cards render again.
+
+Added
+- Right-click menu: "Delete row" (in addition to Insert blank above/below).
+- Keyboard on the channel list: Delete removes the selected row(s) and shifts
+  the list up; Insert adds a blank line below the selection.
+- Channel editor popup: "Delete channel" button removes the current channel
+  (list shifts up) and reloads the slot.
+
+Changed
+- RX Tone / TX Tone now show "OFF" instead of "None" everywhere (channel
+  list, channel editor dropdowns, VFO).
+- Settings fields sized to their values instead of stretching full width
+  (APRS, DTMF, Optional, VFO) - cards hug the left with a trailing spacer.
+- APRS Info scrolls fully (no more cut-off bottom row) and the custom message
+  box is a sensible width.
+- Zones tab restyled to match the app: section header, banded rows, accent
+  Apply button.
+- DTMF group/info fields resized to fit their values.
+
+## v0.7.0-pre63 - Editor popup fix, insert-blank, default column order
+
+Fixed
+- Channel editor popup: the Close button and status line are now pinned to
+  the bottom and always visible (they were getting cut off). The window is a
+  bit taller and resizable, with a sensible minimum size.
+
+Added
+- Right-click menu: "Insert blank above" and "Insert blank below" the
+  selected channel. Inserting shifts the rest of the list (or the current
+  zone) down by one; the last slot in range is pushed out, with a status
+  note if it held data.
+
+Changed
+- Default channel-list column order now matches the requested layout:
+  CH, Name, TX Freq, RX Freq, RX Tone, TX Tone, Power, Wide, Busy Lock,
+  Scan, TX Enable, RX Mod. Columns are still drag-to-reorder and your
+  arrangement is remembered. Existing settings are migrated once to this
+  default; after you drag a column, your order sticks. Use
+  View > Reset channel-list column order to return to this default.
+
+## v0.7.0-pre63 - Main screen redesign: inline editing, popup editor, frequency rules
+
+Changed
+- Removed the fixed side channel-editor panel. The channel list now fills the
+  whole tab for a clearer, wider grid.
+- Edit channels two ways:
+  * Inline: click a row to select it, then click a cell again (or press F2 /
+    Enter) to edit that cell directly in the table. Choice fields (tone,
+    power, etc.) show a dropdown; text/frequency fields are typed.
+  * Popup editor: double-click a row (or use the "Edit channel" toolbar
+    button) to open a channel editor showing every field, with Previous /
+    Next buttons (and PageUp/PageDown) to scroll through channels without
+    closing it. The popup follows the table selection and vice-versa.
+- Frequencies are shown exactly as entered - no trailing zeros are added in
+  the display (132 stays "132", 146.52 stays "146.52"). The canonical padded
+  form is still used internally when writing to the radio/.dat.
+
+Added
+- Frequency range validation for channel RX/TX. Entries must be within the
+  radio's tunable range (0.1-1000 MHz); out-of-range or non-numeric values are
+  rejected with a clear message. A TX frequency outside the radio's transmit
+  bands (144-148, 420-450, and 27 MHz CB) is allowed but flagged with a note
+  that the radio will receive but not transmit there. Limits are defined as
+  named constants (RADIO_RX_MIN/MAX_MHZ, RADIO_TX_BANDS_MHZ) and are easy to
+  adjust. (Sources: Radtel RT-950Pro product listings.)
+
+## v0.7.0-pre63 - Wider channel editor, Read/Write dialog styling, progress bars
 
 Changed
 - Main window channel editor is now double-wide and lays its fields out in
@@ -18,7 +92,7 @@ Fixed
   but no progress bar was ever created, so the busy indicator silently did
   nothing (the AttributeError was swallowed).
 
-## v0.7.0-pre54 - Modulation layout fix, headless-import fix, code audit
+## v0.7.0-pre63 - Modulation layout fix, headless-import fix, code audit
 
 Fixed
 - FM/AM/SSB Modulation (Radio Read): rebuilt the layout with a scrollable
@@ -43,7 +117,7 @@ Verified
 - Module imports cleanly both with Tk present (GUI definitions) and absent
   (CLI mode); the Fluent theme applies without errors.
 
-## v0.7.0-pre53 - Fluent UI overhaul and settings-panel layout fixes
+## v0.7.0-pre63 - Fluent UI overhaul and settings-panel layout fixes
 
 UI redesigned to follow Microsoft's Windows app design guidance
 (https://learn.microsoft.com/windows/apps/design/).
@@ -82,7 +156,7 @@ Notes
 - Optional dependency: `pip install sv-ttk` for the most authentic Windows
   11 surface. The app runs and themes correctly without it.
 
-## v0.7.0-pre52 - Zone Write Save Fix
+## v0.7.0-pre63 - Zone Write Save Fix
 
 - Fixed Radio Read **Save As .dat** so it only asks where to save the file; it no longer asks the user to open/select a template first.
 - Added bundled `rt950pro_dat_template.dat` used internally for Radio Read Save As .dat.
@@ -90,37 +164,37 @@ Notes
 - Added Zone Names to the Write Radio scope/status text.
 - Confirmed RT-950PRO .dat zone names use the radio-style names: `ZoneOne`, `ZoneTwo`, `ZoneThree`, etc.
 
-## v0.7.0-pre52 - Modulation CSV Fix
+## v0.7.0-pre63 - Modulation CSV Fix
 - Fixed Zone editor Apply Name crash.
 - Removed Import CSV / Export CSV from Edit > Zones.
 - Added Import CSV, Export CSV, and Download CSV Template under Edit > FM/AM/SSB Modulation.
 - Added detailed rt950_modulation_template.csv.
 
 
-## v0.7.0-pre52 - Modulation CSV + Zones
+## v0.7.0-pre63 - Modulation CSV + Zones
 
 - Added File > Download CSV templates... for channel template, zone template, and detailed field guide.
 - Added Edit > Zones... editor for zone names.
 - Added zone-name CSV import/export.
-- Preserved v0.7.0-pre52 prerelease-aware GitHub update checker fix.
+- Preserved v0.7.0-pre63 prerelease-aware GitHub update checker fix.
 
-## v0.7.0-pre52 - Update checker prerelease fix
+## v0.7.0-pre63 - Update checker prerelease fix
 
 - Fixed GitHub update checks when the latest published build is a GitHub prerelease.
 - The updater now checks the normal latest release endpoint, then the releases list including prereleases, then the VERSION file.
 - Improved the error message when GitHub data cannot be read.
 
 
-## v0.7.0-pre52 - Auto update checker
+## v0.7.0-pre63 - Auto update checker
 
 - Added **Help → Check for Updates...**.
 - Added automatic startup update check against the project GitHub repository.
 - The app checks the latest GitHub Release first, then falls back to the raw `VERSION` file if no release is published yet.
 - If a newer release is found, the app asks whether to open the GitHub download/release page.
-- Updated build metadata to v0.7.0-pre52.
+- Updated build metadata to v0.7.0-pre63.
 
 
-## v0.7.0-pre52
+## v0.7.0-pre63
 
 - Fixed the clean portable Windows build script for PyInstaller 6.x.
 - Removed the invalid `--noupx` command-line option when building from the `.spec` file.
@@ -128,7 +202,7 @@ Notes
 - Build command remains `BUILD_CLEAN_PORTABLE_WINDOWS.bat`.
 
 
-## 0.7.0-pre52
+## 0.7.0-pre63
 
 - Fixed clean portable build bootstrap when Windows only has the Microsoft Store `python` alias.
 - Build script now searches for `py.exe`, Python 3.13/3.12/3.11, `python`, and `python3`.
@@ -138,13 +212,13 @@ Notes
 
 # Changelog
 
-## v0.7.0-pre52
+## v0.7.0-pre63
 
 - Added `scripts/Upload-BuildToGitHub.ps1` for uploading tested Windows builds to GitHub Releases.
 - Added `docs/GITHUB_RELEASE_UPLOAD_SCRIPT.md` with maintainer upload instructions.
 - The upload script supports existing portable ZIP files, EXE-to-ZIP packaging, draft releases, prerelease releases, and replacing existing release assets.
 
-## v0.7.0-pre52
+## v0.7.0-pre63
 
 Documentation cleanup for EXE-only distribution.
 
@@ -154,7 +228,7 @@ Documentation cleanup for EXE-only distribution.
 - User-facing setup now points only to the Windows executable workflow.
 
 
-## v0.7.0-pre52
+## v0.7.0-pre63
 
 - Updated README for EXE-only distribution.
 - Removed end-user build instructions from README.
@@ -162,7 +236,7 @@ Documentation cleanup for EXE-only distribution.
 
 All notable changes to **RT-950/950Pro Editor** are tracked here.
 
-## v0.7.0-pre52
+## v0.7.0-pre63
 
 Pre-production packaging release.
 
@@ -172,9 +246,9 @@ Pre-production packaging release.
 - Added GitHub-ready `README.md`.
 - Added user guide, build guide, release checklist, developer notes, protocol notes, troubleshooting, backup notes, and radio-compliance notes.
 - Added contributing, support, security, license, requirements, and `.gitignore` files.
-- Updated app version to `v0.7.0-pre52`.
+- Updated app version to `v0.7.0-pre63`.
 
-## v0.7.0-pre52
+## v0.7.0-pre63
 
 Production polish pass.
 
