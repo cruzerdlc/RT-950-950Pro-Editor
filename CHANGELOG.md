@@ -1,4 +1,21 @@
-## v0.7.0-pre63 - Delete/insert, editor delete button, tone OFF, panel fixes
+## v0.7.0-pre76 - Optional Field Write Guard
+
+- Fixed Optional Features write behavior for Radio Read tabs so only user-changed option fields are patched into the fresh pre-write backup.
+- This prevents unrelated optional bytes from being re-encoded when a user changes Display Mode A/B/C or another single option.
+- Write Radio now logs the specific Optional Features fields being applied, which helps confirm whether Display Mode A/B/C, Power Msg, Keypad Lock, or Auto Keypad Lock were actually included in the write image.
+- Corrected internal APP_VERSION metadata to `v0.7.0-pre76`.
+- Kept the pre75 Optional Features layout-height fix and the pre74 APRS editor fix.
+
+## v0.7.0-pre75 - Optional Layout Height Fix
+
+- Fixed Optional Features layout in opened `.dat` tabs; two-column cards no longer stack controls on top of each other.
+- Added scrolling to Optional Features so lower cards stay reachable on smaller screens.
+- Restored the missing APRS Info editor for opened `.dat` files.
+- Kept APRS Info support for Radio Read tabs.
+- Temporarily removed the RepeaterBook import menu item until the workflow is finished.
+- Updated app/version metadata to `v0.7.0-pre75`.
+
+## v0.7.0-pre73 - Delete/insert, editor delete button, tone OFF, panel fixes
 
 Fixed (regressions)
 - FM/AM/SSB Modulation tab was blank: the table grids were nested inside a
@@ -25,7 +42,7 @@ Changed
   Apply button.
 - DTMF group/info fields resized to fit their values.
 
-## v0.7.0-pre63 - Editor popup fix, insert-blank, default column order
+## v0.7.0-pre73 - Editor popup fix, insert-blank, default column order
 
 Fixed
 - Channel editor popup: the Close button and status line are now pinned to
@@ -46,7 +63,7 @@ Changed
   default; after you drag a column, your order sticks. Use
   View > Reset channel-list column order to return to this default.
 
-## v0.7.0-pre63 - Main screen redesign: inline editing, popup editor, frequency rules
+## v0.7.0-pre73 - Main screen redesign: inline editing, popup editor, frequency rules
 
 Changed
 - Removed the fixed side channel-editor panel. The channel list now fills the
@@ -72,7 +89,7 @@ Added
   named constants (RADIO_RX_MIN/MAX_MHZ, RADIO_TX_BANDS_MHZ) and are easy to
   adjust. (Sources: Radtel RT-950Pro product listings.)
 
-## v0.7.0-pre63 - Wider channel editor, Read/Write dialog styling, progress bars
+## v0.7.0-pre73 - Wider channel editor, Read/Write dialog styling, progress bars
 
 Changed
 - Main window channel editor is now double-wide and lays its fields out in
@@ -92,7 +109,7 @@ Fixed
   but no progress bar was ever created, so the busy indicator silently did
   nothing (the AttributeError was swallowed).
 
-## v0.7.0-pre63 - Modulation layout fix, headless-import fix, code audit
+## v0.7.0-pre73 - Modulation layout fix, headless-import fix, code audit
 
 Fixed
 - FM/AM/SSB Modulation (Radio Read): rebuilt the layout with a scrollable
@@ -117,7 +134,7 @@ Verified
 - Module imports cleanly both with Tk present (GUI definitions) and absent
   (CLI mode); the Fluent theme applies without errors.
 
-## v0.7.0-pre63 - Fluent UI overhaul and settings-panel layout fixes
+## v0.7.0-pre73 - Fluent UI overhaul and settings-panel layout fixes
 
 UI redesigned to follow Microsoft's Windows app design guidance
 (https://learn.microsoft.com/windows/apps/design/).
@@ -156,7 +173,7 @@ Notes
 - Optional dependency: `pip install sv-ttk` for the most authentic Windows
   11 surface. The app runs and themes correctly without it.
 
-## v0.7.0-pre63 - Zone Write Save Fix
+## v0.7.0-pre73 - Zone Write Save Fix
 
 - Fixed Radio Read **Save As .dat** so it only asks where to save the file; it no longer asks the user to open/select a template first.
 - Added bundled `rt950pro_dat_template.dat` used internally for Radio Read Save As .dat.
@@ -164,37 +181,37 @@ Notes
 - Added Zone Names to the Write Radio scope/status text.
 - Confirmed RT-950PRO .dat zone names use the radio-style names: `ZoneOne`, `ZoneTwo`, `ZoneThree`, etc.
 
-## v0.7.0-pre63 - Modulation CSV Fix
+## v0.7.0-pre73 - Modulation CSV Fix
 - Fixed Zone editor Apply Name crash.
 - Removed Import CSV / Export CSV from Edit > Zones.
 - Added Import CSV, Export CSV, and Download CSV Template under Edit > FM/AM/SSB Modulation.
 - Added detailed rt950_modulation_template.csv.
 
 
-## v0.7.0-pre63 - Modulation CSV + Zones
+## v0.7.0-pre73 - Modulation CSV + Zones
 
 - Added File > Download CSV templates... for channel template, zone template, and detailed field guide.
 - Added Edit > Zones... editor for zone names.
 - Added zone-name CSV import/export.
-- Preserved v0.7.0-pre63 prerelease-aware GitHub update checker fix.
+- Preserved v0.7.0-pre73 prerelease-aware GitHub update checker fix.
 
-## v0.7.0-pre63 - Update checker prerelease fix
+## v0.7.0-pre73 - Update checker prerelease fix
 
 - Fixed GitHub update checks when the latest published build is a GitHub prerelease.
 - The updater now checks the normal latest release endpoint, then the releases list including prereleases, then the VERSION file.
 - Improved the error message when GitHub data cannot be read.
 
 
-## v0.7.0-pre63 - Auto update checker
+## v0.7.0-pre73 - Auto update checker
 
 - Added **Help → Check for Updates...**.
 - Added automatic startup update check against the project GitHub repository.
 - The app checks the latest GitHub Release first, then falls back to the raw `VERSION` file if no release is published yet.
 - If a newer release is found, the app asks whether to open the GitHub download/release page.
-- Updated build metadata to v0.7.0-pre63.
+- Updated build metadata to v0.7.0-pre73.
 
 
-## v0.7.0-pre63
+## v0.7.0-pre73
 
 - Fixed the clean portable Windows build script for PyInstaller 6.x.
 - Removed the invalid `--noupx` command-line option when building from the `.spec` file.
@@ -202,7 +219,7 @@ Notes
 - Build command remains `BUILD_CLEAN_PORTABLE_WINDOWS.bat`.
 
 
-## 0.7.0-pre63
+## 0.7.0-pre73
 
 - Fixed clean portable build bootstrap when Windows only has the Microsoft Store `python` alias.
 - Build script now searches for `py.exe`, Python 3.13/3.12/3.11, `python`, and `python3`.
@@ -212,13 +229,13 @@ Notes
 
 # Changelog
 
-## v0.7.0-pre63
+## v0.7.0-pre73
 
 - Added `scripts/Upload-BuildToGitHub.ps1` for uploading tested Windows builds to GitHub Releases.
 - Added `docs/GITHUB_RELEASE_UPLOAD_SCRIPT.md` with maintainer upload instructions.
 - The upload script supports existing portable ZIP files, EXE-to-ZIP packaging, draft releases, prerelease releases, and replacing existing release assets.
 
-## v0.7.0-pre63
+## v0.7.0-pre73
 
 Documentation cleanup for EXE-only distribution.
 
@@ -228,7 +245,7 @@ Documentation cleanup for EXE-only distribution.
 - User-facing setup now points only to the Windows executable workflow.
 
 
-## v0.7.0-pre63
+## v0.7.0-pre73
 
 - Updated README for EXE-only distribution.
 - Removed end-user build instructions from README.
@@ -236,7 +253,7 @@ Documentation cleanup for EXE-only distribution.
 
 All notable changes to **RT-950/950Pro Editor** are tracked here.
 
-## v0.7.0-pre63
+## v0.7.0-pre73
 
 Pre-production packaging release.
 
@@ -246,9 +263,9 @@ Pre-production packaging release.
 - Added GitHub-ready `README.md`.
 - Added user guide, build guide, release checklist, developer notes, protocol notes, troubleshooting, backup notes, and radio-compliance notes.
 - Added contributing, support, security, license, requirements, and `.gitignore` files.
-- Updated app version to `v0.7.0-pre63`.
+- Updated app version to `v0.7.0-pre73`.
 
-## v0.7.0-pre63
+## v0.7.0-pre73
 
 Production polish pass.
 
