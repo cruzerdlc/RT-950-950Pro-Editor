@@ -1,3 +1,6 @@
+
+Startup default: this build opens the bundled RT-950PRO_CPS_Data20260626132407.dat save automatically when the app starts. Use File > Open startup default save to reopen it, or File > New blank channel list for a scratch tab.
+
 # RT-950/950Pro Editor
 
 **RT-950/950Pro Editor** is a Windows application for programming and managing the Radtel RT-950 / RT-950Pro radio.
@@ -138,7 +141,7 @@ MIT License. See [LICENSE.txt](LICENSE.txt).
 For building the clean portable Windows release, run `BUILD_CLEAN_PORTABLE_WINDOWS.bat`. If Python is not installed, the build script now offers to install Python 3.12 with `winget`. End users of the finished portable ZIP do not need Python.
 
 
-## v0.7.0-pre76 Optional Layout Height Fix
+## v0.7.0-pre83 Optional Layout Height Fix
 
 - Fixed Optional Features layout overlap in opened `.dat` tabs.
 - Restored APRS Info editor for opened `.dat` files.
@@ -164,5 +167,28 @@ v0.7.0-pre73 notes:
 - Removed zone import/export buttons from the Zone editor.
 
 
-### v0.7.0-pre76 note
-Radio Read Optional Features now patches only the fields changed by the user. Untouched optional bytes are preserved from the fresh pre-write backup so unrelated display, lock, and power-on options are not rewritten by accident.
+### v0.7.0-pre83 notes
+- The displayed app version now comes from the bundled VERSION file.
+- Radio > Write Radio can use a Radio Read tab or an opened .dat tab as the source.
+- Keypad Lock writes include diagnostics showing the requested value and outgoing optional_features byte.
+
+
+### Factory CPS packet capture
+
+Use `Tools > Virtual COM Setup` and `Tools > Packet Capture Tool` to capture the original factory CPS talking to the radio through a proxy bridge. This is useful when a radio behavior is not stored in the normal `.dat` or Radio Read backup data.
+
+
+### v0.7.0-pre83 notes
+
+- Keypad Lock radio offset corrected to `optional_features +0x1B` from clean factory CPS ON/OFF proxy captures.
+- The old `+0x27` value was the `.dat` stream/logical position, not the radio write byte.
+
+
+### v0.7.0-pre90 notes
+- Write Radio screen cleanup: removed the duplicate Open Save Folder button from the options area and kept the existing action-row button.
+- Verify after write and optional pre-write backup remain available.
+
+### v0.7.0-pre89 notes
+
+- Subaudio ScanSave and Cur Work Zone A/B/C radio write mapping fixes.
+- Write Radio now includes a Save pre-write backup capture option and Open Save Folder button.

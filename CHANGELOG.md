@@ -1,10 +1,96 @@
-## v0.7.0-pre76 - Optional Field Write Guard
+## v0.7.0-pre90 - Remove Duplicate Save Folder Button
+- Removed the duplicate **Open Save Folder** button from the Write Radio options area.
+- Kept the existing **Open Save Folder** button beside **Copy Log**.
+- Kept the **Verify after write** and **Save pre-write backup capture** options.
 
-- Fixed Optional Features write behavior for Radio Read tabs so only user-changed option fields are patched into the fresh pre-write backup.
-- This prevents unrelated optional bytes from being re-encoded when a user changes Display Mode A/B/C or another single option.
-- Write Radio now logs the specific Optional Features fields being applied, which helps confirm whether Display Mode A/B/C, Power Msg, Keypad Lock, or Auto Keypad Lock were actually included in the write image.
-- Corrected internal APP_VERSION metadata to `v0.7.0-pre76`.
-- Kept the pre75 Optional Features layout-height fix and the pre74 APRS editor fix.
+## v0.7.0-pre89 - Build VersionInfo Fix
+
+
+## v0.7.0-pre89 - Write Verify Option
+
+- Added a **Verify after write** checkbox to the Write Radio window.
+- When unchecked, the app writes the radio, saves the write transcript, and skips the post-write read-back verification.
+- Kept the existing **Save pre-write backup capture** checkbox and **Open Save Folder** button.
+- Updated write log text so skipped verification is clearly reported.
+
+- Fixed Subaudio ScanSave radio write offset.
+- Fixed Cur Work Zone A/B/C number conversion to avoid off-by-one factory CPS read-back values.
+- Updated Write Radio screen so pre-write backup capture saving is optional instead of silently saved every time.
+- Added Open Save Folder buttons to the Write Radio screen.
+- Kept the fresh radio read before write so unknown bytes are preserved safely.
+
+## v0.7.0-pre86 - Tools Boot Picture and Hidden Dev Mode
+
+- Restored the normal visible Tools menu.
+- Tools menu now contains only Boot Picture.
+- Kept developer/protocol tools hidden behind Ctrl+T Dev Mode.
+- Dev Mode contains Virtual COM Setup, Packet Capture Tool, and Boot Image Capture Lab.
+
+
+## v0.7.0-pre86 - Tools Boot Picture and Hidden Dev Mode
+
+- Removed the normal visible Tools menu from the startup UI.
+- Moved Boot Picture, Virtual COM Setup, Packet Capture Tool, and Boot Image Capture Lab behind hidden Dev Mode.
+- Added Ctrl+T toggle to show/hide the Dev Mode menu.
+- Renamed the bundled startup default tab title to New.
+
+
+## v0.7.0-pre86 - Startup Default Save
+
+- Bundled RT-950PRO_CPS_Data20260626132407.dat as the startup default save.
+- App now opens that default .dat automatically at launch instead of a blank channel-list tab.
+- Added File > Open startup default save.
+- Kept pre83 Keypad Lock offset fix and prior factory write compatibility fixes.
+
+## v0.7.0-pre83 - Factory Keypad Lock Offset Fix
+
+- Fixed Keypad Lock radio offset after comparing clean factory CPS ON/OFF proxy captures.
+- Factory CPS changes optional_features +0x1B: ON=01, OFF=00.
+- The prior +0x27 mapping came from the .dat object stream/logical member order and is not the live radio optional_features offset.
+- Decode and write paths now use +0x1B for cbB_LockKeyBoard.
+- Removed the old mirror write to +0x27.
+
+## v0.7.0-pre82 - Optional Features Factory Mapping Fix
+
+- Corrected Optional Features byte offsets from one-field factory CPS proxy captures.
+- Fixed VOX Delay, BT Write Switch, R-Tone, Menu Exit Time, PowerOn Delay Time, AB-UV Transfer, and Sound Transfer mappings.
+- Moved Keypad Lock and Power Msg to their factory radio-block positions.
+- Added PowerOn Delay Time and VFO Scan Range fields to the Optional Features editor.
+- Corrected Radio Backlight, RadioRxInterrupted, Breathing Light, and NOAA Alarm positions from factory before/after capture.
+- Kept the factory-compatible full write span from pre81.
+
+## v0.7.0-pre80 - Packet Capture Menu Fix
+
+- Added Tools > Virtual COM Setup.
+- Added Tools > Packet Capture Tool.
+- Added Tools > Boot Image Capture Lab.
+- Updated Packet Capture wording for factory CPS write captures.
+- Kept VERSION-file driven app version handling.
+
+## v0.7.0-pre79 - Version and Keypad Lock Write Path Fix
+
+- Fixed the app title/About/status version display. `APP_VERSION` now reads the bundled `VERSION` file, with `v0.7.0-pre79` as fallback.
+- Fixed the opened `.dat` write path: Radio > Write Radio can now use either a Radio Read tab or an opened `.dat` tab as the source.
+- When writing from an opened `.dat`, VFO, Optional Features, DTMF, FM/AM/SSB, and APRS settings are decoded from the `.dat` and staged into the fresh radio backup blocks before writing.
+- Added write-log diagnostics for Keypad Lock showing the requested value and the outgoing `optional_features` byte.
+- Confirmed the factory CPS keypad lock/unlock `.dat` samples decode as `cbB_LockKeyBoard` 0/1 and encode to `optional_features[0x1D]` 0/1.
+- Kept previous Optional Features layout fix, APRS opening fix, and RepeaterBook import hidden for now.
+
+## v0.7.0-pre78 - Factory Keypad Lock Mapping Fix
+
+- Compared factory CPS exports with Keypad Lock OFF vs ON. The files differ by exactly one byte: `cbB_LockKeyBoard` at stream offset `0x0706`, changing `00` to `01`.
+- Locked Keypad Lock radio-block writing to the confirmed `optional_features` byte position 29.
+- Kept Keypad Lock as a forced `00`/`01` value so OFF does not preserve `FF` and ON always writes `01`.
+- Fixed `Save Radio Read as .dat` so Optional Features, including Keypad Lock, are copied into the output `.dat` instead of falling back to template defaults.
+- Kept the previous Optional Features layout, APRS opening, and RepeaterBook-hidden changes.
+- Updated app/version metadata to `v0.7.0-pre78`.
+
+## v0.7.0-pre77 - Keypad Lock Write Fix
+
+- Fixed Optional Features > Keypad Lock write behavior.
+- Keypad Lock now writes an explicit `00` for OFF and `01` for ON in the radio optional-features block.
+- Previous builds could preserve `FF` when the UI displayed OFF, which could leave the radio keypad lock state wrong after write.
+- Kept the previous Optional Features layout/APRS fixes and kept RepeaterBook import hidden.
 
 ## v0.7.0-pre75 - Optional Layout Height Fix
 

@@ -1,4 +1,7 @@
-RT-950/950Pro Editor v0.7.0-pre76
+
+Startup default: this build opens the bundled RT-950PRO_CPS_Data20260626132407.dat save automatically when the app starts. Use File > Open startup default save to reopen it, or File > New blank channel list for a scratch tab.
+
+RT-950/950Pro Editor v0.7.0-pre83
 =================================
 
 Pre-production Windows application
@@ -35,7 +38,7 @@ Windows release builds should be distributed as a portable folder ZIP, not as a 
 For building the clean portable Windows release, run `BUILD_CLEAN_PORTABLE_WINDOWS.bat`. If Python is not installed, the build script now offers to install Python 3.12 with `winget`. End users of the finished portable ZIP do not need Python.
 
 
-v0.7.0-pre76 notes:
+v0.7.0-pre82 notes:
 - Fixed Optional Features layout overlap.
 - Restored APRS Info editor for opened .dat files.
 - RepeaterBook import is hidden until finished.
@@ -49,3 +52,7 @@ v0.7.0-pre73 notes:
 - Fixed Zone editor Apply Name crash.
 - Moved modulation CSV import/export/template workflow to Edit > FM/AM/SSB Modulation.
 - Removed zone import/export buttons from the Zone editor.
+
+
+v0.7.0-pre83 notes:
+- Keypad Lock radio offset corrected to optional_features +0x1B from factory CPS ON/OFF proxy captures.
