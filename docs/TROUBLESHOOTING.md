@@ -39,4 +39,4 @@ The RT-950Pro tested during development did not return current boot-image bytes 
 
 ## Antivirus warns about EXE
 
-Windows or antivirus software may warn on new unsigned pre-production executables. Download only from the official project release page and scan the file before running.
+Windows or antivirus software may warn on new unsigned community executables. Download only from the official project release page and scan the file before running.
