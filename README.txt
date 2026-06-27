@@ -56,3 +56,6 @@ v0.7.0-pre73 notes:
 
 v0.7.0-pre83 notes:
 - Keypad Lock radio offset corrected to optional_features +0x1B from factory CPS ON/OFF proxy captures.
+
+
+v0.7.0-pre92: Adds channel checkbox multi-select, bulk channel editing with common-value prefill, reliable Channel Editor close behavior, and Defender false-positive notes.

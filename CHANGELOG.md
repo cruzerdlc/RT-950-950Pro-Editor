@@ -1,3 +1,34 @@
+
+## v0.7.0-pre93 - Remove Dev Capture Tools
+
+- Removed hidden Dev Mode menu entirely.
+- Removed Ctrl+T developer toggle.
+- Removed packet-capture/protocol lab code from the public build:
+  - Virtual COM Setup
+  - Packet Capture Tool
+  - Boot Image Capture Lab
+- Kept visible Tools > Boot Picture.
+- Kept all channel frequency, COM-port display, bulk edit, write screen, and mapping fixes from pre92.
+- Goal: reduce public-build size and avoid heuristic antivirus triggers caused by bundled packet-capture/developer tooling.
+
+
+## v0.7.0-pre92 - Channel Frequency, COM Port, and Bulk Edit UX Fixes
+
+- COM port dropdowns now show only the device name, such as COM1 or COM5.
+- Bulk channel edit now closes the window after Apply to selected succeeds.
+- Main channel RX/TX frequency display now uses four decimals, for example 467.7000.
+- Main channel RX/TX validation now restricts entries to the RT-950 PRO channel ranges: 26.965-27.405, 136-174, and 400-520 MHz.
+- FM/AM/SSB Modulation SSB beat-offset text now displays as -32760-+27240Hz.
+
+## v0.7.0-pre92 - Bulk Channel Edit and Defender Notes
+- Added a visual checkbox column next to each channel row for easier multi-channel selection.
+- Added bulk channel editing when multiple rows are selected and Edit channel is pressed.
+- Bulk editor pre-populates fields that are common across the selected channels and shows <mixed> for fields that differ.
+- Bulk editor only applies fields the user changes, preserving per-channel values for unchanged/mixed fields.
+- Fixed Channel Editor close behavior so Close/Escape/window X closes the editor instead of being blocked by validation.
+- Added an Apply button to the single-channel editor.
+- Added release notes explaining Microsoft Defender heuristic false positives and safe verification/submission steps.
+
 ## v0.7.0-pre90 - Remove Duplicate Save Folder Button
 - Removed the duplicate **Open Save Folder** button from the Write Radio options area.
 - Kept the existing **Open Save Folder** button beside **Copy Log**.
@@ -554,3 +585,5 @@ Production polish pass.
 - Initial proof-of-concept codeplug editor.
 - Imported/exported CSV.
 - Opened RT-950Pro `.dat` files and displayed channel rows.
+
+See `DEFENDER_FALSE_POSITIVE_NOTES.md` for notes on Microsoft Defender heuristic false-positive handling.

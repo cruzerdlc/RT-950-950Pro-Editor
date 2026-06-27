@@ -14,6 +14,18 @@ Donate: https://cash.app/$cruzerdlc
 >
 > **Binary packaging note:** public builds are distributed as a clean portable Windows folder/ZIP instead of a one-file self-extracting EXE to reduce antivirus false positives.
 
+
+### v0.7.0-pre93 public-build cleanup
+
+This build removes the hidden developer packet-capture tools from the public source package and executable build path. The normal **Tools > Boot Picture** feature remains.
+
+Removed from public build:
+
+- Virtual COM Setup
+- Packet Capture Tool
+- Boot Image Capture Lab
+- Ctrl+T Dev Mode menu toggle
+
 ## Download and run
 
 This project is intended to be delivered as a ready-to-run Windows executable. End users do **not** need Python, PyInstaller, or any build tools.
@@ -192,3 +204,14 @@ Use `Tools > Virtual COM Setup` and `Tools > Packet Capture Tool` to capture the
 
 - Subaudio ScanSave and Cur Work Zone A/B/C radio write mapping fixes.
 - Write Radio now includes a Save pre-write backup capture option and Open Save Folder button.
+
+### v0.7.0-pre93 notes
+
+- Channel rows now include a checkbox column for easier multi-select.
+- Selecting multiple rows and pressing **Edit channel** opens the new bulk editor.
+- The bulk editor fills in values that are the same across all selected channels and shows `<mixed>` where values differ.
+- Only changed bulk-editor fields are applied to all selected channels.
+- The single-channel editor now closes reliably with **Close**, **Esc**, or the window X.
+- Microsoft Defender may flag unsigned PyInstaller builds with heuristic labels such as Wacatac. This release keeps the clean onedir build, UPX disabled, and source available for review. Submit suspected false positives to Microsoft Security Intelligence before distributing broadly.
+
+See `DEFENDER_FALSE_POSITIVE_NOTES.md` for notes on Microsoft Defender heuristic false-positive handling.
