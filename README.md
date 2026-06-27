@@ -55,7 +55,43 @@ Before using the app:
 - Light mode and dark mode.
 - Startup splash screen with project links.
 
-## v0.7.9 changes
+## v0.8.10 changes
+
+- Refined COM/USB cable read/write sizing for the channel block.
+- Changed COM/USB full-write channel span from `0x8000` to `0x7C00`.
+- Changed COM/USB read channel span to the matching `0x7C00` size.
+- The editor still exposes 990 real USB/factory channel slots; the final 64 bytes are preserved/padded alignment bytes.
+- Bluetooth/BLE read and write behavior is unchanged from the confirmed-good v0.8.8/v0.8.9 path.
+
+## v0.8.9 changes
+
+- UI-only update on top of v0.8.8.
+- Enlarged the startup splash screen so the Close button is visible again.
+- Increased the Write Radio window height so the bottom progress/log/status area is no longer clipped.
+- Kept v0.8.8 Bluetooth/BLE read/write behavior unchanged.
+
+## v0.8.8 changes
+
+- Reworked Bluetooth/BLE clone operations toward the working CHIRP driver model.
+- Added a CHIRP-style BLE clone map with a 0x7800 / 960-channel segment and preserved 64-byte channel gap.
+- BLE writes from a Radio Read tab now skip the extra pre-write safety read and write only full full CHIRP-compatible clone payload.
+- USB serial read/write behavior is unchanged.
+
+## v0.8.6 changes
+
+- Changed Bluetooth/BLE reads to use fast reference-style timing.
+- Removed the extra slow BLE pacing that could let the radio drop out of programming mode during long reads.
+- Reduced BLE empty-read retries to short, quick retries instead of long waits.
+- Reduced BLE per-block timeout so a missed notify burst retries faster.
+- Kept BLE dynamic SEND challenge/key negotiation from v0.8.5.
+## v0.8.1 changes
+
+- Added visible Bluetooth/BLE attribution in the startup splash screen.
+- Added Bluetooth/BLE attribution to the About screen.
+- Added Bluetooth/BLE attribution in the Read Radio and Write Radio windows.
+- Kept experimental BLE read/write logic from v0.8.0 intact.
+
+## v0.8.0 changes
 
 - Increased the default main app window size so the full left navigation rail fits better.
 - Increased the minimum app window size to reduce clipped sidebar actions.
@@ -93,3 +129,12 @@ Source is available for review. If an antivirus product incorrectly flags the ap
 ## Safety and legal note
 
 Always verify frequencies, tones, offsets, and transmit permissions before writing to the radio. Follow your local radio regulations.
+
+
+## Bluetooth/BLE read and write
+
+Version v0.8.0 added experimental Bluetooth/BLE read and write. Version v0.8.1 adds visible attribution for the BLE reference work.  In **Read Radio** or **Write Radio**, choose **Bluetooth / BLE**, click **Scan BLE**, select the RT-950/950Pro radio, and then read or write.
+
+Bluetooth write is experimental. Keep a known-good backup, keep the radio powered on, and do not interrupt the write. The app still uses the same RT-950/950Pro read/write backend; Bluetooth only replaces the USB serial byte transport.
+
+The BLE transport includes MIT-licensed reference work by Nivin Goonesekera (VK3NWG), with portions by Nathan G. Barguss (2E0NBS). See `THIRD_PARTY_NOTICES.md`.

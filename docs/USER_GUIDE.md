@@ -38,3 +38,11 @@ Use **View > Dark mode** or the sidebar theme button. The app remembers your the
 ## Important
 
 Verify all frequencies, tones, offsets, and legal transmit permissions before writing data to the radio.
+
+## Bluetooth/BLE read and write
+
+Version v0.8.0 added experimental Bluetooth/BLE read and write. Version v0.8.1 adds visible attribution for the BLE reference work. In **Read Radio** or **Write Radio**, choose **Bluetooth / BLE**, click **Scan BLE**, select the RT-950/950Pro radio, and then read or write.
+
+Before scanning, turn on Bluetooth on the PC, enable Bluetooth on the radio, and disconnect the radio from the phone app so it is advertising.
+
+Bluetooth write is experimental. Keep a known-good backup, keep the radio powered on, and do not interrupt the write.
