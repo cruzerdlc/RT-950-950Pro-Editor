@@ -1,3 +1,20 @@
+## v0.8.27
+
+- Fixed Bluetooth/BLE zone-name write: the app now marks and sends the separate 0xC000-0xC100 zone-name block whenever Zones is enabled in Write Scope.
+- Fixes the v0.8.26 issue where the log showed zone names were applied to the write image, but the C000 write never happened because BLE read plans now include a zone readback block.
+- Stable full BLE write remains in use; Fast BLE write remains removed.
+
+## v0.8.26 BLE zone-name write update
+
+Bluetooth/BLE writes now always send the separate C000 zone-name block whenever Zones is enabled in Write Scope. This matches COM/USB behavior more closely and fixes missed BLE zone renames. Fast BLE write remains removed; the stable full BLE write path remains in use.
+
+## v0.8.26 - BLE read reliability refinement
+
+- Added same-session BLE page retry for empty or partial 128-byte read frames.
+- Added a small BLE read pacing delay to reduce mid-read stalls on slower radios/adapters.
+- Kept normal BLE write/fast-write behavior unchanged.
+- Kept all v0.8.21 frequency validation fixes.
+
 # RT-950/950Pro Editor
 
 **RT-950/950Pro Editor** is a Windows application for programming and managing the Radtel RT-950 / RT-950Pro radio.
@@ -138,3 +155,36 @@ Version v0.8.0 added experimental Bluetooth/BLE read and write. Version v0.8.1 a
 Bluetooth write is experimental. Keep a known-good backup, keep the radio powered on, and do not interrupt the write. The app still uses the same RT-950/950Pro read/write backend; Bluetooth only replaces the USB serial byte transport.
 
 The BLE transport includes MIT-licensed reference work by Nivin Goonesekera (VK3NWG), with portions by Nathan G. Barguss (2E0NBS). See `THIRD_PARTY_NOTICES.md`.
+
+
+### Language menu
+
+Use **View > Language** to switch the app shell language. This first translation pass covers the main menu, command bar, left navigation, theme toggle, and common shell controls. Radio field names, CSV columns, and protocol values intentionally remain English so saved data and radio writes are not changed by the UI language.
+
+
+### v0.8.21 27 MHz TX/RX validation update
+
+- Added 27 MHz / CB transmit-capable range: 26.965-27.405 MHz.
+- TX validation now allows 26.965-27.405, 49-53, 136-174, and 400-520 MHz.
+- RX still allows the broader receive-only LW/MW/SW/airband coverage where supported.
+
+
+### v0.8.20 49-53 MHz TX/RX update
+
+- Added 49-53 MHz as an allowed main-channel RX range.
+- Added 49-53 MHz as an allowed main-channel TX range.
+- LW/MW/SW remain RX-only and are still blocked on the TX side.
+
+### v0.8.19 frequency validation update
+
+Main channel RX and TX validation are now separate. RX allows the radio receive-only ranges, including LW 153-279 kHz, MW 520-1710 kHz, SW 2.3-30 MHz, 108-174 MHz, and 225-520 MHz. TX is restricted to 136-174 MHz and 400-520 MHz so receive-only ranges cannot be written to the transmit side.
+
+### v0.8.22 Fast BLE write update
+
+Bluetooth/BLE writes now include a Fast BLE write option. When enabled, the app compares the merged write image against the current radio image and sends only changed 128-byte protocol pages. This can make small channel/settings edits much faster while keeping the proven BLE read protocol unchanged.
+
+
+
+### v0.8.26 stable BLE full-write update
+
+The experimental Fast BLE changed-page writer has been removed/disabled. Bluetooth/BLE writes now always use the stable full-payload write path again. The v0.8.23 BLE read reliability pacing/retry fix remains included.
