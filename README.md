@@ -1,3 +1,10 @@
+## v0.8.28
+
+- Changed channel RX/TX out-of-band validation from a hard block to a professional liability confirmation prompt.
+- Numeric frequencies outside the published RT-950 PRO operating/design range now show a warning and can be allowed after the user accepts responsibility.
+- Invalid/non-numeric frequency entries are still rejected.
+- Keeps v0.8.27 Bluetooth/BLE zone-name write marker fix and all prior BLE reliability/frequency-range fixes.
+
 ## v0.8.27
 
 - Fixed Bluetooth/BLE zone-name write: the app now marks and sends the separate 0xC000-0xC100 zone-name block whenever Zones is enabled in Write Scope.
