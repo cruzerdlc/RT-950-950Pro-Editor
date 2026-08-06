@@ -13,3 +13,7 @@ Users are responsible for:
 Some stock presets may be receive-only or require specific licenses. Review each channel before transmitting.
 
 This project is not affiliated with Radtel.
+
+## RadioRef Import
+
+RadioRef Import retrieves publicly visible frequency tables through web scraping. Use reasonable request rates and follow the website's current terms and policies. Imported listings are informational and may be incomplete, outdated, or unsuitable for transmission. The editor defaults RadioRef results to receive-only; the operator remains responsible for reviewing every channel and complying with applicable licensing, equipment-certification, and frequency-use rules.

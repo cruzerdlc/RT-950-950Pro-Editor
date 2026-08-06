@@ -1,3 +1,46 @@
+# v0.8.40
+
+- Added persistent rotating application logs under `%APPDATA%\RT950ProEditor\logs`.
+- Added **Help > Enable Detailed Logging**, enabled by default, with a saved per-user preference.
+- Added **Help > Open Log Folder** so users can immediately locate and send `rt950pro_editor.log` and its rotated backups.
+- Added startup diagnostics covering app version, Python/runtime, operating system, executable location, working directory, settings path, and log path.
+- Standardized the GitHub update-check User-Agent and instrumented the complete workflow: request URL, HTTP status, elapsed time, response size/type, rate-limit remainder, fallback source, raw/normalized version, version keys, chosen asset, and final comparison decision.
+- Fixed the update-check error callback: the prior worker captured an exception variable in a delayed lambda, which Python clears after the `except` block and could cause update failures to disappear behind a callback `NameError`.
+- Moved update results through a thread-safe queue polled by Tk instead of calling Tk methods directly from the network worker thread.
+- Automatic update failures now appear in the status bar and point users to **Help > Open Log Folder**; manual failures also show the exact log path.
+- Added logging for unexpected Tk callback, main-thread, and worker-thread exceptions.
+- Added automatic redaction for personal `rbuapp_` and legacy shared `app_` RepeaterBook tokens in application logs.
+- Added seven diagnostic logging/update-check regression tests; all previous RadioRef, RepeaterBook, boot-picture, AM/TX, stock-config, and settings fixes remain included.
+
+# v0.8.39
+
+- Added **File > RepeaterBook Import** using RepeaterBook's approved per-user app-token workflow.
+- Each user enters their own `rbuapp_` token; shared `app_` tokens are rejected and none is embedded in the source or release package.
+- Added links to the RepeaterBook API Apps dashboard and API instructions.
+- Remembered tokens use Windows Data Protection when available and can be cleared from the importer.
+- Corrected the User-Agent to preserve the exact RepeaterBook-approved project prefix while appending the current runtime version and contact email.
+- Added United States searches by state, ZIP-resolved city, city, county, callsign, frequency, landmark, mode, emergency-service classification, and Amateur/GMRS service.
+- Added rest-of-world searches by country, region, city, callsign, frequency, landmark, and mode.
+- Added selectable result preview, operational-only filtering, result limits, duplicate detection, and direct import into the active file.
+- Added destination zone, append/overwrite, and starting-channel controls.
+- Digital-only repeaters can be imported receive-only or skipped; analog-capable repeaters retain input frequency and uplink/downlink tones when provided.
+- Analog repeater results without a published input frequency default to receive-only instead of transmitting on the repeater output.
+- Added RepeaterBook attribution and detail-page links without providing a bulk database, standalone export service, or website scraper.
+- Added nine RepeaterBook token, query, header, parsing, conversion, and menu regression tests.
+- Retains all v0.8.38 RadioRef, Patreon, v0.8.37 boot-picture, v0.8.36 stock-config, and v0.8.35 AM/TX/settings fixes.
+
+# v0.8.38
+
+- Added **File > RadioRef Import** with ZIP, City/State, and County/State searches.
+- Added JavaScript-rendered RadioReference scraping through Playwright with standard HTML fallback; no RadioReference API key is required.
+- Added result preview, multi-row selection, mode filters, CHIRP CSV export, human-readable TXT export, and direct import into the currently open radio file.
+- Added destination zone, append/overwrite, and start-channel controls.
+- RadioReference and unsupported digital-mode rows default to receive-only; DMR/P25/NXDN/D-STAR/C4FM can be listed but are not decoded by the radio.
+- Added CHIRP CSV validation, existing-CSV mode filtering, CSV-to-TXT conversion, and county-cache build/refresh tools.
+- Added bundled US county-ID seed cache and standard 22-channel GMRS/FRS plus 7-channel NOAA generators.
+- Added Patreon links to the splash screen, left sidebar above GitHub, and About window: https://patreon.com/KK4OXN
+- Retains all v0.8.37 boot-picture completion, v0.8.36 stock-config, and v0.8.35 AM/TX/settings fixes.
+
 # v0.8.37
 
 - Fixed a false boot-picture completion warning after all 150 image pages had been acknowledged.

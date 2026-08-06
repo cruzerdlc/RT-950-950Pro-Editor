@@ -46,3 +46,7 @@ Version v0.8.0 added experimental Bluetooth/BLE read and write. Version v0.8.1 a
 Before scanning, turn on Bluetooth on the PC, enable Bluetooth on the radio, and disconnect the radio from the phone app so it is advertising.
 
 Bluetooth write is experimental. Keep a known-good backup, keep the radio powered on, and do not interrupt the write.
+
+## RepeaterBook import
+
+Use **File > RepeaterBook Import** to search with a personal RepeaterBook `rbuapp_` token and import selected repeaters directly into the open configuration. Choose the destination zone and append or overwrite behavior, then review every imported frequency, input, tone, mode, and TX-enable setting before writing. See `REPEATERBOOK_IMPORT.md` for token setup and troubleshooting.

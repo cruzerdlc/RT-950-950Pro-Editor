@@ -40,3 +40,13 @@ The RT-950Pro tested during development did not return current boot-image bytes 
 ## Antivirus warns about EXE
 
 Windows or antivirus software may warn on new unsigned community executables. Download only from the official project release page and scan the file before running.
+
+## Automatic or manual update detection does not work
+
+1. Run **Help > Check for Updates...** manually.
+2. Open **Help > Open Log Folder**.
+3. Send `rt950pro_editor.log` to the developer.
+4. Include the app version, Windows version, approximate time of the failed check, and whether a VPN, proxy, firewall, antivirus HTTPS inspection, or filtered network was active.
+
+The log records GitHub HTTP status codes, timeouts, SSL/DNS errors, API rate-limit information, parsed versions, and the final comparison decision. Personal RepeaterBook tokens are redacted automatically.
+
