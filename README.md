@@ -5,11 +5,17 @@
 <h1 align="center">RT-950/950Pro Editor</h1>
 
 <p align="center">
+  <img src="https://img.shields.io/badge/version-v0.8.40-blue" alt="Version v0.8.40">
+  <img src="https://img.shields.io/badge/platform-Windows-0078D4" alt="Windows">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License"></a>
+</p>
+
+<p align="center">
   A community-developed Windows programming application for the Radtel RT-950 and RT-950Pro radios.
 </p>
 
 <p align="center">
-  <strong>Current stable release: v0.8.37</strong><br>
+  <strong>Current stable release: v0.8.40</strong><br>
   Created by <strong>KK4OXN</strong>
 </p>
 
@@ -21,7 +27,8 @@ RT-950/950Pro Editor is an alternative to the original Radtel CPS software. It p
 
 The editor can work directly with the radio through a USB programming cable or Bluetooth Low Energy, and it can also open and save compatible Radtel CPS `.dat` files.
 
-This project is independent community software and is not produced, sponsored, or supported by Radtel.
+This project is independent community software and is not produced, sponsored,
+endorsed, or supported by Radtel.
 
 ## Main features
 
@@ -50,6 +57,13 @@ This project is independent community software and is not produced, sponsored, o
 - Multilingual application shell.
 - Built-in update checking.
 - Detailed logs and write transcripts for troubleshooting.
+
+## What's new in v0.8.40
+
+- Persistent rotating logs in `%APPDATA%\RT950ProEditor\logs`.
+- **Help > Enable Detailed Logging** and **Help > Open Log Folder**.
+- Startup and update-check diagnostics, with clearer update-failure reporting.
+- Automatic redaction of personal RepeaterBook tokens in logs.
 
 ## Supported workflows
 
@@ -89,14 +103,9 @@ Legacy `.dat` channel records are automatically upgraded in memory when newer fi
 
 CSV support makes it easier to create, review, and exchange channel lists in spreadsheet applications.
 
-Included templates are available in the `templates` folder:
-
-- `rt950_channels_template.csv`
-- `rt950_modulation_template.csv`
-- `rt950_zones_template.csv`
-- `rt950_csv_template_field_guide.txt`
-
-The project also includes stock configuration CSV files for services and calling frequencies in several countries. Always verify local laws and frequency assignments before transmitting.
+The released application includes channel, modulation, and zone CSV templates, plus
+stock configuration imports for common services and calling frequencies. Always
+verify local laws and frequency assignments before transmitting.
 
 ## System requirements
 
@@ -109,22 +118,9 @@ The project also includes stock configuration CSV files for services and calling
 
 End users running the released `.exe` do not need Python.
 
-### To run from source or build the executable
-
-- Python 3.
-- Packages listed in `requirements.txt`.
-- Build packages listed in `requirements-build.txt`.
-- PyInstaller for creating the portable Windows executable.
-
-The repository includes Windows build scripts:
-
-- `INSTALL_PYTHON_FOR_BUILD_WINDOWS.bat`
-- `BUILD_CLEAN_PORTABLE_WINDOWS.bat`
-- `MAKE_RELEASE_ZIP_WINDOWS.bat`
-
 ## Installation
 
-1. Open the repository's **Releases** page.
+1. Open the repository's [Releases page](https://github.com/cruzerdlc/RT-950-950Pro-Editor/releases).
 2. Download the newest `RT950_vX.X.XX.zip` release.
 3. Extract the entire ZIP file to a normal folder.
 4. Run:
@@ -134,6 +130,9 @@ RT-950_950Pro_Editor.exe
 ```
 
 Do not run the executable directly from inside the ZIP archive.
+
+Every release includes a SHA-256 checksum. Verify the downloaded archive against
+the checksum published with that release before opening it.
 
 Windows Defender or another antivirus program may warn about an unsigned community-built executable. Download releases only from the official project repository. See `DEFENDER_FALSE_POSITIVE_NOTES.md` and `docs/ANTIVIRUS_FALSE_POSITIVES.md` for more information.
 
@@ -202,9 +201,33 @@ Do not disconnect the cable, close the program, or power off the radio during a 
 
 Keep a known-good backup and keep the radio near the computer throughout the operation.
 
+## RadioReference import
+
+The RadioReference/RadioRef importer supports ZIP, city/state, and county/state
+searches, result preview and selection, mode filtering, CHIRP CSV and text export,
+and direct import into the open radio file. Select a destination zone, choose append
+or overwrite behavior, and set the starting channel as needed.
+
+DMR, P25, NXDN, D-STAR, C4FM, and other unsupported digital modes may appear in
+imported results, but the radio does not decode digital voice. Those entries are
+treated as receive-only where appropriate.
+
+## RepeaterBook import
+
+RepeaterBook import uses each user's own personal `rbuapp_` application token; the
+program does not include a shared embedded token. Tokens can be remembered using
+Windows protection when available. Searches support relevant combinations of state,
+city, ZIP, county, callsign, frequency, landmark, region, country, and mode.
+
+Preview and selectively import results into a destination zone with append or
+overwrite behavior. Digital-only repeaters can be imported as receive-only or
+skipped. When published, valid analog input frequencies and tones are retained.
+The application does not redistribute the RepeaterBook database.
+
 ## Working with stock configurations
 
-The `stock_configs` folder contains prepared CSV lists for common services and frequency groups. To use one:
+The released application includes prepared stock configurations for common services
+and frequency groups. To use one:
 
 1. Open **File > Open Stock Config**.
 2. Select the desired configuration.
@@ -309,41 +332,24 @@ For bugs, feature requests, and questions, open an issue:
 
 https://github.com/cruzerdlc/RT-950-950Pro-Editor/issues
 
+Use the issue form that best fits the request. For support questions, include
+the information below so maintainers can reproduce the problem.
+
 Please include:
 
 - App version.
 - Windows version.
 - Radio model.
-- USB serial adapter or cable type, when known.
-- COM port used.
 - Connection type: USB/COM or BLE.
-- The exact steps performed before the problem.
-- The complete log text or transcript.
+- USB serial adapter/cable type and COM port, when relevant.
+- What you were trying to do and exact reproduction steps.
+- Expected and actual results.
+- Relevant log text or transcript. In v0.8.40, use **Help > Open Log Folder**.
 - Whether the radio was read back after the write.
 
-Do not post a private radio backup publicly unless you have removed personal and sensitive data.
-
-## Building from source
-
-Clone or download the repository, install the dependencies, and run:
-
-```text
-python rt950pro_editor.py
-```
-
-For a clean portable Windows build, use:
-
-```text
-BUILD_CLEAN_PORTABLE_WINDOWS.bat
-```
-
-To prepare a release archive, use:
-
-```text
-MAKE_RELEASE_ZIP_WINDOWS.bat
-```
-
-Build output and antivirus behavior can differ between machines. Review the build scripts before running them.
+Do not post a private radio backup or codeplug publicly unless you have removed
+callsigns, APRS coordinates, private frequencies, names, API tokens, and other
+sensitive information.
 
 ## Documentation
 
@@ -352,10 +358,10 @@ Additional documentation is available in the `docs` folder:
 - `USER_GUIDE.md`
 - `BACKUP_AND_RESTORE.md`
 - `TROUBLESHOOTING.md`
-- `PROTOCOL_NOTES.md`
-- `AUTO_UPDATE.md`
 - `LEGAL_AND_RADIO_COMPLIANCE.md`
 - `ANTIVIRUS_FALSE_POSITIVES.md`
+- `RADIOREF_IMPORT.md`
+- `REPEATERBOOK_IMPORT.md`
 
 ## Safety and legal notice
 
@@ -367,7 +373,9 @@ You are responsible for operating the radio legally and safely.
 - Keep a backup before every write.
 - Do not interrupt a radio write or boot-picture upload.
 
-This software is provided without warranty. Use it at your own risk. See the repository license and legal documentation for full terms.
+Users are responsible for confirming applicable licensing, frequency allocations,
+and operating rules in their jurisdiction. This software is provided without
+warranty. Use it at your own risk.
 
 ## Credits and licensing
 
@@ -375,13 +383,18 @@ RT-950/950Pro Editor was created by **KK4OXN**.
 
 Bluetooth/BLE support uses adapted MIT-licensed reference work by **Nivin Goonesekera (VK3NWG)**, with portions based on work by **Nathan G. Barguss (2E0NBS)**. See `THIRD_PARTY_NOTICES.md` for attribution and license details.
 
+This project is licensed under the [MIT License](LICENSE).
+
 Project repository:
 
 https://github.com/cruzerdlc/RT-950-950Pro-Editor
 
-## Donations
+## Support the project
 
-This project is developed and maintained for the radio community. Donations help support testing equipment, development time, and future improvements.
+This project is developed and maintained for the radio community. Support is
+optional and helps with testing equipment, development time, and future improvements.
+
+### [Support on Patreon](https://www.patreon.com/KK4OXN)
 
 **Support the project through Cash App:**
 

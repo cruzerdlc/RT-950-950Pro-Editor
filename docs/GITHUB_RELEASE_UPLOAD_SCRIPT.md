@@ -24,7 +24,7 @@ gh auth login
 ## Upload an existing release ZIP
 
 ```powershell
-.\scripts\Upload-BuildToGitHub.ps1 -ReleaseZip ".\release\RT950_950Pro_Editor_v0.7.0-pre4_Windows_Portable.zip"
+.\scripts\Upload-BuildToGitHub.ps1 -ReleaseZip ".\release\RT950_950Pro_Editor_v0.8.40_Windows_Portable.zip"
 ```
 
 ## Upload from an EXE
@@ -38,7 +38,7 @@ If you only have the tested EXE, the script can package it into a portable ZIP f
 ## Draft release
 
 ```powershell
-.\scripts\Upload-BuildToGitHub.ps1 -ReleaseZip ".\release\RT950_950Pro_Editor_v0.7.0-pre4_Windows_Portable.zip" -Draft $true
+.\scripts\Upload-BuildToGitHub.ps1 -ReleaseZip ".\release\RT950_950Pro_Editor_v0.8.40_Windows_Portable.zip" -Draft $true
 ```
 
 ## Notes

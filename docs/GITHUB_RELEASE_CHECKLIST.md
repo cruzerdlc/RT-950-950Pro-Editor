@@ -10,20 +10,23 @@
 - [ ] Confirm Radio → Write Radio works with a harmless edit.
 - [ ] Confirm Boot Picture → Upload to Radio works with a test image.
 - [ ] Confirm `README.md`, `CHANGELOG.md`, and docs are updated.
+- [ ] Confirm `VERSION` contains the exact release tag (for example, `v0.8.40`).
 - [ ] Package the tested EXE into the release ZIP or installer.
+- [ ] Generate and publish the SHA-256 checksum for every downloadable asset.
+- [ ] Create the Git tag from the tested commit and publish the GitHub Release.
 
 ## Suggested GitHub release title
 
 ```text
-RT-950/950Pro Editor v0.7.0-pre1
+RT-950/950Pro Editor v0.8.40
 ```
 
 ## Suggested release notes
 
 ```markdown
-## RT-950/950Pro Editor v0.7.0-pre1
+## RT-950/950Pro Editor v0.8.40
 
-Pre-production release package.
+Stable release package.
 
 ### Highlights
 
@@ -50,5 +53,5 @@ Always read/backup before writing. Do not unplug power or USB during write or bo
 ## Upload with PowerShell script
 
 ```powershell
-.\scripts\Upload-BuildToGitHub.ps1 -ReleaseZip ".\release\RT950_950Pro_Editor_v0.7.0-pre4_Windows_Portable.zip"
+.\scripts\Upload-BuildToGitHub.ps1 -ReleaseZip ".\release\RT950_950Pro_Editor_v0.8.40_Windows_Portable.zip"
 ```

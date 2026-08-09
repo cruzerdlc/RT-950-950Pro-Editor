@@ -11,7 +11,7 @@ https://github.com/cruzerdlc/RT-950-950Pro-Editor
 Use the included PowerShell script from the project folder:
 
 ```powershell
-.\scripts\Upload-BuildToGitHub.ps1 -ReleaseZip ".\release\RT950_950Pro_Editor_v0.7.0-pre4_Windows_Portable.zip"
+.\scripts\Upload-BuildToGitHub.ps1 -ReleaseZip ".\release\RT950_950Pro_Editor_v0.8.40_Windows_Portable.zip"
 ```
 
 The script uses GitHub CLI authentication and does not store a token. Install/sign in once:

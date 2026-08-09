@@ -1,0 +1,26 @@
+name: Question or support request
+description: Ask for help that is not a reproducible bug report.
+title: "[Support]: "
+labels: [question]
+body:
+  - type: dropdown
+    id: radio_model
+    attributes:
+      label: Radio model
+      options: [RT-950, RT-950Pro, Not applicable]
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options: [USB/COM programming, Bluetooth/BLE, File editing, General use]
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: Include your app and Windows versions, and do not include private codeplugs, tokens, or personal information.
+    validations:
+      required: true
