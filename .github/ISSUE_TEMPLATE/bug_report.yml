@@ -1,0 +1,90 @@
+name: Bug report
+description: Report a reproducible problem with RT-950/950Pro Editor.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: "Thank you for helping improve the editor. Do not attach private codeplugs or logs containing personal information."
+  - type: input
+    id: version
+    attributes:
+      label: App version
+      description: Copy the version from Help > About or the release you downloaded.
+      placeholder: v0.8.40
+    validations:
+      required: true
+  - type: dropdown
+    id: radio_model
+    attributes:
+      label: Radio model
+      options: [RT-950, RT-950Pro]
+    validations:
+      required: true
+  - type: dropdown
+    id: windows
+    attributes:
+      label: Windows version
+      options: [Windows 11, Windows 10, Other]
+    validations:
+      required: true
+  - type: dropdown
+    id: connection
+    attributes:
+      label: Connection type
+      options: [USB/COM programming cable, Bluetooth/BLE, No radio connection]
+    validations:
+      required: true
+  - type: input
+    id: com_port
+    attributes:
+      label: COM port
+      description: Required for USB/COM issues; otherwise enter N/A.
+      placeholder: COM3
+    validations:
+      required: true
+  - type: input
+    id: cable
+    attributes:
+      label: USB programming cable or chipset
+      description: Enter the cable/chipset when known, otherwise N/A.
+  - type: textarea
+    id: task
+    attributes:
+      label: What were you trying to do?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      placeholder: "1. ...\n2. ...\n3. ..."
+    validations:
+      required: true
+  - type: dropdown
+    id: readable_afterward
+    attributes:
+      label: Could the radio still be read afterward?
+      options: [Yes, No, Not tested, Not applicable]
+    validations:
+      required: true
+  - type: dropdown
+    id: reproducible
+    attributes:
+      label: Is the problem reproducible?
+      options: [Always, Sometimes, Only once, Not sure]
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior and logs
+      description: In v0.8.40 use Help > Open Log Folder. Include the complete error text and relevant log excerpts, after removing personal or sensitive information.
+    validations:
+      required: true

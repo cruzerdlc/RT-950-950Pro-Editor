@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://github.com/cruzerdlc/RT-950-950Pro-Editor/tree/main/docs
+    about: Review the user guide and troubleshooting documentation before opening an issue.
