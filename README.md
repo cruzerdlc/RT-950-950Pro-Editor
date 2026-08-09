@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="rt950_950pro_icon.png" alt="RT-950/950Pro Editor icon" width="128">
-</p>
-
 <h1 align="center">RT-950/950Pro Editor</h1>
 
 <p align="center">
@@ -395,13 +391,3 @@ This project is developed and maintained for the radio community. Support is
 optional and helps with testing equipment, development time, and future improvements.
 
 ### [Support on Patreon](https://www.patreon.com/KK4OXN)
-
-**Support the project through Cash App:**
-
-### [Donate with Cash App — $cruzerdlc](https://cash.app/$cruzerdlc)
-
-<p align="center">
-  <a href="https://cash.app/$cruzerdlc">
-    <img src="cashapp_qr.png" alt="Donate to $cruzerdlc with Cash App" width="220">
-  </a>
-</p>
