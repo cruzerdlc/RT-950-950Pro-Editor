@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="rt950_950pro_icon.png" alt="RT-950/950Pro Editor icon" width="128">
-</p>
-
 <h1 align="center">RT-950/950Pro Editor</h1>
 
 <p align="center">
@@ -9,13 +5,13 @@
 </p>
 
 <p align="center">
-  <img alt="Version 1.1.2" src="https://img.shields.io/badge/version-1.1.2-0078D4">
+  <img alt="Version 1.1.3" src="https://img.shields.io/badge/version-1.1.3-0078D4">
   <img alt="Windows 10 and 11" src="https://img.shields.io/badge/Windows-10%20%7C%2011-0078D4">
   <img alt="License MIT" src="https://img.shields.io/badge/license-MIT-green">
 </p>
 
 <p align="center">
-  <strong>Current stable release: v1.1.2</strong><br>
+  <strong>Current stable release: v1.1.3</strong><br>
   Created by <strong>KK4OXN</strong>
 </p>
 
@@ -29,13 +25,14 @@ The application is written in native C# with WinUI 3. It communicates directly w
 
 This project is independent community software and is not produced, sponsored, endorsed, or supported by Radtel.
 
-## What's new in v1.1.2
+## What's new in v1.1.3
 
-- Added all 40 standard United States CB channels as a bundled stock configuration.
-- Configured matching transmit and receive frequencies in AM mode.
-- Preserved the correct historical frequency ordering for CB channels 23, 24, and 25.
-- Added automated validation for the complete U.S. CB channel plan.
-- Retains the native radio, `.dat`, selective stock-import, channel-editing, cloning, and installer improvements introduced in v1.1.1.
+- Entering an RX frequency now automatically fills the TX frequency when the TX field is blank.
+- Channels loaded or imported with a blank TX frequency are normalized to the RX frequency so both frequency fields remain complete.
+- Receive-only behavior is preserved through the channel's **TX enabled** setting; completing the TX field does not silently enable transmitting.
+- Redesigned the RadioReference search area into a more compact layout, leaving substantially more room for discovered channels.
+- Compacted the RepeaterBook token and search controls so more search results remain visible without scrolling.
+- Includes the v1.1.2 U.S. CB stock configuration with all 40 AM channels and matching TX/RX frequencies, plus all earlier native radio, `.dat`, import, editing, and installer improvements.
 
 See [CHANGELOG.md](CHANGELOG.md) for earlier release history.
 
@@ -99,7 +96,7 @@ See [CHANGELOG.md](CHANGELOG.md) for earlier release history.
 2. Download the newest x64 installer, currently:
 
    ```text
-   RT950_950Pro_Editor_Setup_v1.1.2_x64.exe
+   RT950_950Pro_Editor_Setup_v1.1.3_x64.exe
    ```
 
 3. Close the editor if an older version is running.
@@ -213,25 +210,9 @@ Please include:
 
 Logs are stored under `%APPDATA%\RT950ProEditor\logs`. Review files before posting them publicly.
 
-## Building from source
+## Repository contents
 
-The current application is native C# and WinUI 3. Python and PyInstaller are not part of the public application build.
-
-Prerequisites include the .NET 8 SDK, a compatible Windows SDK, and the Windows App SDK dependencies restored through NuGet.
-
-From the `RT950` directory:
-
-```powershell
-dotnet build .\WinUI3\RT950ProEditor.WinUI\RT950ProEditor.WinUI.csproj -c Debug -p:Platform=x64
-```
-
-For a native x64 release publish:
-
-```powershell
-dotnet publish .\WinUI3\RT950ProEditor.WinUI\RT950ProEditor.WinUI.csproj -c Release -r win-x64 --self-contained true -p:Platform=x64 -p:WindowsAppSDKSelfContained=false
-```
-
-See [WinUI3/DEPLOYMENT.md](WinUI3/DEPLOYMENT.md) for packaging details.
+This repository provides the public Windows releases, user documentation, release checksums, issue tracking, license, and third-party notices for RT-950/950Pro Editor. Download the signed application installer from the [Releases](https://github.com/cruzerdlc/RT-950-950Pro-Editor/releases) page.
 
 ## Documentation
 
@@ -243,8 +224,6 @@ Additional documentation is available in the [`docs`](docs) folder:
 - [Protocol notes](docs/PROTOCOL_NOTES.md)
 - [RadioReference import](docs/RADIOREF_IMPORT.md)
 - [RepeaterBook import](docs/REPEATERBOOK_IMPORT.md)
-- [Automatic updates](docs/AUTO_UPDATE.md)
-- [Diagnostic logging](docs/DIAGNOSTIC_LOGGING.md)
 - [Legal and radio compliance](docs/LEGAL_AND_RADIO_COMPLIANCE.md)
 - [Antivirus and reputation warnings](docs/ANTIVIRUS_FALSE_POSITIVES.md)
 
@@ -266,7 +245,7 @@ RT-950/950Pro Editor was created by **KK4OXN**.
 
 Bluetooth/BLE support uses adapted MIT-licensed reference work by **Nivin Goonesekera (VK3NWG)**, with portions based on work by **Nathan G. Barguss (2E0NBS)**. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for attribution and license details.
 
-This project is licensed under the [MIT License](LICENSE.txt).
+This project is licensed under the [MIT License](LICENSE).
 
 ## Support the project
 
@@ -274,9 +253,3 @@ The editor is developed and maintained for the radio community. Optional support
 
 - **Patreon:** [Become a supporter at patreon.com/KK4OXN](https://patreon.com/KK4OXN)
 - **Cash App:** [Donate to $cruzerdlc](https://cash.app/$cruzerdlc)
-
-<p align="center">
-  <a href="https://cash.app/$cruzerdlc">
-    <img src="cashapp_qr.png" alt="Donate to $cruzerdlc with Cash App" width="220">
-  </a>
-</p>

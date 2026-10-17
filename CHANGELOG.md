@@ -1,3 +1,11 @@
+# v1.1.3
+
+- Automatically fills a blank TX frequency from the RX frequency while editing a channel.
+- Normalizes blank TX frequency fields from RX values during supported load and import workflows while preserving the channel's TX-enabled state.
+- Compacted the RadioReference search controls to provide more space for discovered-channel results.
+- Compacted the RepeaterBook token and search controls to provide more space for result review and selection.
+- Retains the v1.1.2 U.S. CB stock configuration and all earlier native radio, `.dat`, import, editing, and installer improvements.
+
 # v0.8.40
 
 - Added persistent rotating application logs under `%APPDATA%\RT950ProEditor\logs`.
