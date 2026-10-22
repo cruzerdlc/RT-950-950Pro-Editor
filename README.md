@@ -5,13 +5,13 @@
 </p>
 
 <p align="center">
-  <img alt="Version 1.1.3" src="https://img.shields.io/badge/version-1.1.3-0078D4">
+  <img alt="Version 1.1.4" src="https://img.shields.io/badge/version-1.1.4-0078D4">
   <img alt="Windows 10 and 11" src="https://img.shields.io/badge/Windows-10%20%7C%2011-0078D4">
   <img alt="License MIT" src="https://img.shields.io/badge/license-MIT-green">
 </p>
 
 <p align="center">
-  <strong>Current stable release: v1.1.3</strong><br>
+  <strong>Current stable release: v1.1.4</strong><br>
   Created by <strong>KK4OXN</strong>
 </p>
 
@@ -25,14 +25,15 @@ The application is written in native C# with WinUI 3. It communicates directly w
 
 This project is independent community software and is not produced, sponsored, endorsed, or supported by Radtel.
 
-## What's new in v1.1.3
+## What's new in v1.1.4
 
-- Entering an RX frequency now automatically fills the TX frequency when the TX field is blank.
-- Channels loaded or imported with a blank TX frequency are normalized to the RX frequency so both frequency fields remain complete.
-- Receive-only behavior is preserved through the channel's **TX enabled** setting; completing the TX field does not silently enable transmitting.
-- Redesigned the RadioReference search area into a more compact layout, leaving substantially more room for discovered channels.
-- Compacted the RepeaterBook token and search controls so more search results remain visible without scrolling.
-- Includes the v1.1.2 U.S. CB stock configuration with all 40 AM channels and matching TX/RX frequencies, plus all earlier native radio, `.dat`, import, editing, and installer improvements.
+- Added a Backup Manager for reviewing, filtering by backup type, renaming, restoring, and safely moving one or multiple selected backups to the Recycle Bin.
+- Added filtering, sorting, and **Select visible** controls to RadioReference and RepeaterBook result previews.
+- Added a pre-import placement summary showing destination slots, occupied channels that will be replaced, and channels that will not fit before changes are applied.
+- Compacted the RadioReference and RepeaterBook search forms and expanded the discovered-channel lists into the reclaimed space.
+- Added one-click support diagnostic ZIP export containing recent logs and protocol transcripts while excluding radio captures, codeplugs, API tokens, and saved credentials.
+- Expanded localization coverage for the new backup, import-preview, and diagnostic controls.
+- Includes the v1.1.3 RX-to-TX completion, compact import workflows, and all earlier native radio, `.dat`, editing, stock-config, and installer improvements.
 
 See [CHANGELOG.md](CHANGELOG.md) for earlier release history.
 
@@ -96,7 +97,7 @@ See [CHANGELOG.md](CHANGELOG.md) for earlier release history.
 2. Download the newest x64 installer, currently:
 
    ```text
-   RT950_950Pro_Editor_Setup_v1.1.3_x64.exe
+   RT950_950Pro_Editor_Setup_v1.1.4_x64.exe
    ```
 
 3. Close the editor if an older version is running.

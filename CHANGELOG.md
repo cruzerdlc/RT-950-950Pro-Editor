@@ -1,3 +1,13 @@
+# v1.1.4
+
+- Compacted the RadioReference and RepeaterBook search forms so they use only the space their controls require.
+- Expanded the discovered-channel lists to automatically use the vertical space reclaimed from the search forms.
+- Added a Backup Manager for reviewing, filtering by backup type, renaming, restoring, and safely moving one or multiple selected backups to the Recycle Bin.
+- Added filtering, sorting, and Select visible controls to RadioReference and RepeaterBook result previews.
+- Added a pre-import placement summary and confirmation showing destination slots, occupied channels that will be replaced, and channels that will not fit.
+- Added one-click support diagnostic ZIP export containing recent logs and protocol transcripts while excluding codeplugs, radio captures, API tokens, and saved credentials.
+- Expanded localization coverage for the new backup, import-preview, and diagnostic controls.
+
 # v1.1.3
 
 - Automatically fills a blank TX frequency from the RX frequency while editing a channel.
