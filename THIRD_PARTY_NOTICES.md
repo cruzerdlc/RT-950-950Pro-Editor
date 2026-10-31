@@ -1,5 +1,16 @@
 # Third-Party Notices
 
+## nicFW950 / RMS880 compatibility
+
+The optional nicFW950 compatibility profile is based on the public protocol,
+storage-layout, and data-structure documentation maintained by **nicsure** in the
+[RMS880 project](https://github.com/nicsure/RMS880). Compatibility development
+was performed with the firmware developer's permission and technical assistance.
+
+The RT-950/950Pro Editor does not bundle, redistribute, or claim ownership of the
+nicFW950 firmware or the original RMS desktop application. Firmware installation
+and licensing remain governed by the RMS880 project and its authors.
+
 ## RT-950 Pro Bluetooth LE transport reference
 
 The experimental Bluetooth/BLE read/write transport in this app includes code and protocol behavior adapted from the Radtel RT-950Pro BLE bridge / CHIRP driver by Nivin Goonesekera (VK3NWG). Portions of that driver were based on original USB-cable driver work by Nathan G. Barguss (2E0NBS).

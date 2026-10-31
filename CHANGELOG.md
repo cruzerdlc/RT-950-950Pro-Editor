@@ -1,3 +1,20 @@
+# v1.1.5
+
+- Added a separate USB/serial profile for RT-950 Pro radios running nicFW950 custom firmware while preserving the existing factory USB/COM and Bluetooth/BLE workflows.
+- Added safe read, edit, write, backup, and verification support for all 999 nicFW950 channel slots.
+- Added support for nicFW channel names, groups, clarifier/BFO, reverse, modulation, bandwidth, power, PTT ID, tones, and documented channel flags.
+- Added automatic nicFW configuration captures plus Backup Manager filtering and restore support.
+- Added selectable nicFW operating baud rates. Connections begin at the required 38,400-baud bootstrap rate and negotiate the selected operating speed.
+- Added firmware-aware navigation that switches to the nicFW950 tool set after reading or reopening a nicFW configuration.
+- Added RMS-style editors for Settings, Groups, User Keys, Band Plan, Scanning, DTMF, GPS/APRS, Codeplug, Power, Calibration, Fonts, UI, Startup, Console, and firmware maintenance.
+- Added exact storage-block import and export for advanced backup, comparison, and recovery work.
+- Added a nicFW-only firmware and flash backup/restore workspace. Factory-firmware radios do not see these incompatible controls.
+- Added a 240 × 320 RGB565 nicFW startup-image editor with crop/zoom positioning, in-radio preview, RMS-compatible formatting, read/write verification, and preservation of required header and reserved bytes.
+- Added live nicFW remote display and keypad control with held-button/PTT handling, automatic normal-screen redraw, stream recovery, and improved text rendering.
+- Forced radio writes to use the connection profile carried by the loaded configuration, preventing factory and nicFW protocols from being mixed.
+- Reworked nicFW settings and channel editors into compact responsive grids sized for their longest valid choices.
+- Expanded multilingual coverage across the complete nicFW950 workspace, connection dialogs, firmware tools, and live operation status text.
+
 # v1.1.4
 
 - Compacted the RadioReference and RepeaterBook search forms so they use only the space their controls require.

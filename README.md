@@ -5,13 +5,13 @@
 </p>
 
 <p align="center">
-  <img alt="Version 1.1.4" src="https://img.shields.io/badge/version-1.1.4-0078D4">
+  <img alt="Version 1.1.5" src="https://img.shields.io/badge/version-1.1.5-0078D4">
   <img alt="Windows 10 and 11" src="https://img.shields.io/badge/Windows-10%20%7C%2011-0078D4">
   <img alt="License MIT" src="https://img.shields.io/badge/license-MIT-green">
 </p>
 
 <p align="center">
-  <strong>Current stable release: v1.1.4</strong><br>
+  <strong>Current stable release: v1.1.5</strong><br>
   Created by <strong>KK4OXN</strong>
 </p>
 
@@ -25,15 +25,17 @@ The application is written in native C# with WinUI 3. It communicates directly w
 
 This project is independent community software and is not produced, sponsored, endorsed, or supported by Radtel.
 
-## What's new in v1.1.4
+## What's new in v1.1.5
 
-- Added a Backup Manager for reviewing, filtering by backup type, renaming, restoring, and safely moving one or multiple selected backups to the Recycle Bin.
-- Added filtering, sorting, and **Select visible** controls to RadioReference and RepeaterBook result previews.
-- Added a pre-import placement summary showing destination slots, occupied channels that will be replaced, and channels that will not fit before changes are applied.
-- Compacted the RadioReference and RepeaterBook search forms and expanded the discovered-channel lists into the reclaimed space.
-- Added one-click support diagnostic ZIP export containing recent logs and protocol transcripts while excluding radio captures, codeplugs, API tokens, and saved credentials.
-- Expanded localization coverage for the new backup, import-preview, and diagnostic controls.
-- Includes the v1.1.3 RX-to-TX completion, compact import workflows, and all earlier native radio, `.dat`, editing, stock-config, and installer improvements.
+- Added a separate USB/serial profile for RT-950 Pro radios running [nicFW950 custom firmware](https://github.com/nicsure/RMS880).
+- Added read, edit, write, automatic backup, and read-back verification for all 999 nicFW channel slots.
+- Added firmware-aware navigation and RMS-style Settings, Groups, User Keys, Band Plan, Scanning, DTMF, GPS/APRS, Codeplug, Power, Calibration, Remote, Fonts, UI, Startup, Console, and Firmware sections.
+- Added a nicFW-only firmware/flash workspace, exact storage-block import/export, and Backup Manager restore support.
+- Added a 240 × 320 RGB565 startup-image editor with crop/zoom, in-radio preview, compatible formatting, and write verification.
+- Added live nicFW remote display and keypad/PTT control.
+- Added selectable nicFW operating baud rates while retaining its required 38,400-baud bootstrap connection.
+- Forced every write to use the firmware profile carried by the loaded configuration so factory and nicFW protocols cannot be mixed.
+- Added compact responsive layouts and expanded multilingual coverage throughout the nicFW workspace.
 
 See [CHANGELOG.md](CHANGELOG.md) for earlier release history.
 
@@ -97,7 +99,7 @@ See [CHANGELOG.md](CHANGELOG.md) for earlier release history.
 2. Download the newest x64 installer, currently:
 
    ```text
-   RT950_950Pro_Editor_Setup_v1.1.4_x64.exe
+   RT950_950Pro_Editor_Setup_v1.1.5_x64.exe
    ```
 
 3. Close the editor if an older version is running.
@@ -123,7 +125,7 @@ Installing over an older version removes retired Python/PyInstaller backend file
 1. Connect the programming cable and turn on the radio, or enable Bluetooth on the radio and PC.
 2. Close the OEM CPS, CHIRP, phone app, serial terminals, and anything else that could be using the connection.
 3. Open **Dashboard > Read Radio**.
-4. Choose **USB / Serial COM Port** or **Bluetooth / BLE**.
+4. Choose **USB / Serial COM Port**, **Bluetooth / BLE**, or **USB / Serial COM Port (nicFW950 custom firmware)** to match the connected radio.
 5. Select the COM port or scan for the Bluetooth radio.
 6. Start the read and keep the radio connected until it finishes.
 
@@ -140,7 +142,7 @@ Edits are applied automatically to the active workspace. Use **Save .dat** to ke
 ### Write a radio
 
 1. Open **Dashboard > Write Radio**.
-2. Choose USB/COM or Bluetooth/BLE and select the radio.
+2. Select the factory USB/COM, factory Bluetooth/BLE, or nicFW950 USB profile carried by the loaded configuration, then select the radio.
 3. Optionally select **Create a fresh backup before writing**.
 4. Confirm that the connected radio will be overwritten.
 5. Start the write and do not disconnect or power off the radio.
@@ -153,6 +155,25 @@ Bluetooth/BLE programming uses the Windows Bluetooth stack. Keep the radio near 
 If Windows can see the radio but cannot open its notification channel, disconnect the radio from other devices, toggle Bluetooth off and on, power-cycle the radio, and scan again. Removing an old saved `walkie-talkie` device from Windows Bluetooth settings may also help.
 
 Boot-picture upload is supported through USB/COM only.
+
+## nicFW950 custom firmware
+
+Version 1.1.5 adds a separate compatibility profile for an RT-950 Pro running
+[nicFW950](https://github.com/nicsure/RMS880). Factory firmware and nicFW950 use
+different protocols and storage layouts; select the firmware profile that is
+actually installed on the connected radio.
+
+After a successful nicFW read, the navigation automatically changes to the
+firmware-specific tool set. The editor supports 999 memory channels, groups,
+user keys, settings, scanning, DTMF, GPS/APRS, startup images, remote control,
+firmware tools, exact block import/export, and configuration backups. Writes use
+a fresh baseline, preserve reserved and radio-managed data, write changed pages,
+reboot the radio, and read those pages back for verification.
+
+Firmware flashing controls are shown only when a nicFW configuration is active.
+Back up a known-good radio configuration and flash image before using firmware,
+calibration, power, startup-image, or recovery tools. See the
+[nicFW950 support guide](docs/NICFW950_SUPPORT.md) for connection and safety details.
 
 ## RadioReference and RepeaterBook
 
@@ -203,7 +224,7 @@ Please include:
 - Application version.
 - Windows version.
 - Radio model and firmware version, when known.
-- USB/COM or Bluetooth/BLE connection type.
+- Factory USB/COM, factory Bluetooth/BLE, or nicFW950 USB connection type.
 - Programming-cable or serial-adapter type and COM port, when relevant.
 - Exact reproduction steps and the displayed error.
 - Relevant log or diagnostic transcript.
@@ -225,6 +246,7 @@ Additional documentation is available in the [`docs`](docs) folder:
 - [Protocol notes](docs/PROTOCOL_NOTES.md)
 - [RadioReference import](docs/RADIOREF_IMPORT.md)
 - [RepeaterBook import](docs/REPEATERBOOK_IMPORT.md)
+- [nicFW950 custom firmware](docs/NICFW950_SUPPORT.md)
 - [Legal and radio compliance](docs/LEGAL_AND_RADIO_COMPLIANCE.md)
 - [Antivirus and reputation warnings](docs/ANTIVIRUS_FALSE_POSITIVES.md)
 
@@ -245,6 +267,8 @@ This software is provided without warranty. Use it at your own risk.
 RT-950/950Pro Editor was created by **KK4OXN**.
 
 Bluetooth/BLE support uses adapted MIT-licensed reference work by **Nivin Goonesekera (VK3NWG)**, with portions based on work by **Nathan G. Barguss (2E0NBS)**. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for attribution and license details.
+
+nicFW950 compatibility was developed with permission and technical assistance from the **RMS880/nicFW950 developer, nicsure**. The custom firmware is not bundled with this editor.
 
 This project is licensed under the [MIT License](LICENSE).
 
