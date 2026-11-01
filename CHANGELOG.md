@@ -1,3 +1,13 @@
+# v1.1.6
+
+- Added a multi-channel bulk editor that changes only selected fields while preserving every other channel value.
+- Added channel undo and redo with timestamped history for individual edits, bulk edits, moves, copies, drag-and-drop operations, and zone/group clearing.
+- Added a Configuration Validation Center with firmware-aware checks and direct navigation to reported channel problems.
+- Added a detailed post-write verification report containing write status, programmed-channel count, all byte differences, warnings, and diagnostic file paths.
+- Removed the former 20-item verification-difference cap.
+- Reworked the Dashboard toolbar into a compact responsive two-row layout and kept the zone and search controls outside the horizontally scrolling channel table.
+- Retained the complete v1.1.5 factory-firmware and nicFW950 feature set.
+
 # v1.1.5
 
 - Added a separate USB/serial profile for RT-950 Pro radios running nicFW950 custom firmware while preserving the existing factory USB/COM and Bluetooth/BLE workflows.

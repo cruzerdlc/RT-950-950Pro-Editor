@@ -5,13 +5,13 @@
 </p>
 
 <p align="center">
-  <img alt="Version 1.1.5" src="https://img.shields.io/badge/version-1.1.5-0078D4">
+  <img alt="Version 1.1.6" src="https://img.shields.io/badge/version-1.1.6-0078D4">
   <img alt="Windows 10 and 11" src="https://img.shields.io/badge/Windows-10%20%7C%2011-0078D4">
   <img alt="License MIT" src="https://img.shields.io/badge/license-MIT-green">
 </p>
 
 <p align="center">
-  <strong>Current stable release: v1.1.5</strong><br>
+  <strong>Current stable release: v1.1.6</strong><br>
   Created by <strong>KK4OXN</strong>
 </p>
 
@@ -25,17 +25,15 @@ The application is written in native C# with WinUI 3. It communicates directly w
 
 This project is independent community software and is not produced, sponsored, endorsed, or supported by Radtel.
 
-## What's new in v1.1.5
+## What's new in v1.1.6
 
-- Added a separate USB/serial profile for RT-950 Pro radios running [nicFW950 custom firmware](https://github.com/nicsure/RMS880).
-- Added read, edit, write, automatic backup, and read-back verification for all 999 nicFW channel slots.
-- Added firmware-aware navigation and RMS-style Settings, Groups, User Keys, Band Plan, Scanning, DTMF, GPS/APRS, Codeplug, Power, Calibration, Remote, Fonts, UI, Startup, Console, and Firmware sections.
-- Added a nicFW-only firmware/flash workspace, exact storage-block import/export, and Backup Manager restore support.
-- Added a 240 × 320 RGB565 startup-image editor with crop/zoom, in-radio preview, compatible formatting, and write verification.
-- Added live nicFW remote display and keypad/PTT control.
-- Added selectable nicFW operating baud rates while retaining its required 38,400-baud bootstrap connection.
-- Forced every write to use the firmware profile carried by the loaded configuration so factory and nicFW protocols cannot be mixed.
-- Added compact responsive layouts and expanded multilingual coverage throughout the nicFW workspace.
+- Added multi-channel bulk editing for power, bandwidth, mode, RX/TX tones, busy lockout, scan membership, transmit enable, and up to four nicFW groups.
+- Added undo, redo, and timestamped change history for individual edits, bulk edits, moves, copies, drag-and-drop operations, and zone/group clearing.
+- Added a Configuration Validation Center that detects invalid frequencies, malformed tones, unsupported values, firmware-specific errors, and likely duplicate channels before a write.
+- Added a complete post-write verification report with programmed-channel count, all expected-versus-actual byte differences, warnings, and links to backup, verification, and diagnostic files.
+- Removed the former 20-item verification-difference limit so every detected mismatch remains available for diagnosis.
+- Reworked the Dashboard toolbar into a compact responsive layout that keeps Search, Copy selected, Move selected, and other controls visible at narrower window sizes.
+- Retains the complete factory-firmware and [nicFW950 custom firmware](https://github.com/nicsure/RMS880) feature set introduced in v1.1.5.
 
 See [CHANGELOG.md](CHANGELOG.md) for earlier release history.
 
@@ -99,7 +97,7 @@ See [CHANGELOG.md](CHANGELOG.md) for earlier release history.
 2. Download the newest x64 installer, currently:
 
    ```text
-   RT950_950Pro_Editor_Setup_v1.1.5_x64.exe
+   RT950_950Pro_Editor_Setup_v1.1.6_x64.exe
    ```
 
 3. Close the editor if an older version is running.
