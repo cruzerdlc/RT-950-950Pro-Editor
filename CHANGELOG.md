@@ -1,3 +1,9 @@
+# v1.1.7
+
+- Fixed Write Radio connection routing so a saved nicFW950 USB/serial profile remains selected after returning from Settings to the Dashboard.
+- Factory/startup channel workspaces now honor the explicitly saved write profile, including the saved COM port and nicFW operating baud rate.
+- Loaded nicFW codeplugs continue to force the nicFW protocol so they cannot be sent through incompatible factory USB or Bluetooth/BLE workflows.
+
 # v1.1.6
 
 - Added a multi-channel bulk editor that changes only selected fields while preserving every other channel value.

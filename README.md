@@ -5,13 +5,13 @@
 </p>
 
 <p align="center">
-  <img alt="Version 1.1.6" src="https://img.shields.io/badge/version-1.1.6-0078D4">
+  <img alt="Version 1.1.7" src="https://img.shields.io/badge/version-1.1.7-0078D4">
   <img alt="Windows 10 and 11" src="https://img.shields.io/badge/Windows-10%20%7C%2011-0078D4">
   <img alt="License MIT" src="https://img.shields.io/badge/license-MIT-green">
 </p>
 
 <p align="center">
-  <strong>Current stable release: v1.1.6</strong><br>
+  <strong>Current stable release: v1.1.7</strong><br>
   Created by <strong>KK4OXN</strong>
 </p>
 
@@ -25,15 +25,13 @@ The application is written in native C# with WinUI 3. It communicates directly w
 
 This project is independent community software and is not produced, sponsored, endorsed, or supported by Radtel.
 
-## What's new in v1.1.6
+## What's new in v1.1.7
 
-- Added multi-channel bulk editing for power, bandwidth, mode, RX/TX tones, busy lockout, scan membership, transmit enable, and up to four nicFW groups.
-- Added undo, redo, and timestamped change history for individual edits, bulk edits, moves, copies, drag-and-drop operations, and zone/group clearing.
-- Added a Configuration Validation Center that detects invalid frequencies, malformed tones, unsupported values, firmware-specific errors, and likely duplicate channels before a write.
-- Added a complete post-write verification report with programmed-channel count, all expected-versus-actual byte differences, warnings, and links to backup, verification, and diagnostic files.
-- Removed the former 20-item verification-difference limit so every detected mismatch remains available for diagnosis.
-- Reworked the Dashboard toolbar into a compact responsive layout that keeps Search, Copy selected, Move selected, and other controls visible at narrower window sizes.
-- Retains the complete factory-firmware and [nicFW950 custom firmware](https://github.com/nicsure/RMS880) feature set introduced in v1.1.5.
+- Fixed Write Radio connection routing so a saved nicFW950 USB/serial profile remains selected after returning from Settings to the Dashboard.
+- Factory `.dat` files and startup channel workspaces now honor the explicitly saved write profile.
+- The saved COM port and nicFW operating baud rate remain available in the Write Radio dialog.
+- Loaded nicFW codeplugs continue to force the nicFW protocol, preventing them from being sent through incompatible factory USB or Bluetooth/BLE workflows.
+- Retains the complete v1.1.6 bulk-editing, undo/redo, validation, verification-report, and responsive Dashboard improvements.
 
 See [CHANGELOG.md](CHANGELOG.md) for earlier release history.
 
@@ -97,7 +95,7 @@ See [CHANGELOG.md](CHANGELOG.md) for earlier release history.
 2. Download the newest x64 installer, currently:
 
    ```text
-   RT950_950Pro_Editor_Setup_v1.1.6_x64.exe
+   RT950_950Pro_Editor_Setup_v1.1.7_x64.exe
    ```
 
 3. Close the editor if an older version is running.
