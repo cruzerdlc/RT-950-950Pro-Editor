@@ -1,3 +1,14 @@
+# v1.1.8
+
+- Added a persistent interrupted-write recovery journal and a post-write **Restore previous configuration** workflow using the exact pre-write baseline.
+- Replaced the RadioReference and RepeaterBook summary-only import prompt with a row-by-row comparison that identifies duplicates, occupied destinations, and frequency conflicts.
+- Added nicFW firmware-family capability gating so unvalidated major versions are limited to Console and Firmware recovery tools.
+- Fixed the Dashboard connection indicator after successful writes, made imported channel-name truncation firmware-aware and byte-safe, and corrected nicFW group-name storage.
+- Hardened factory GBK and nicFW UTF-8 fixed-width text handling so multibyte characters cannot be split into garbled bytes.
+- Corrected the Broadcast FM name limit, erased `0xFF` padding, signaling group 16, factory DCS validation, and RMS ASCII-only field handling.
+- Corrected stale regression assertions and record offsets, and expanded byte-exact coverage for text boundaries, storage records, recovery paths, imports, and connection routing.
+- Removed stale hard-coded version identifiers from native and legacy network clients.
+
 # v1.1.7
 
 - Fixed Write Radio connection routing so a saved nicFW950 USB/serial profile remains selected after returning from Settings to the Dashboard.
